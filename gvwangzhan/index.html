@@ -1,0 +1,2958 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GV网站一同入口 - 影视内容聚合与深度解析</title>
+  <meta name="description" content="GV网站一同入口汇聚GV题材影视作品、演员动态与观看指南。包含近期热门作品清单、分类筛选、深度影评、常见问题与用户讨论，适合关注男性向影视内容的观众与创作者参考。">
+  <meta name="keywords" content="GV网站一同入口">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f2a3a'/%3E%3Cpath d='M10 8h12v4H10zm0 6h12v4H10zm0 6h8v4h-8z' fill='%23e8b04b'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --color-primary: #1f2a3a;
+      --color-primary-light: #2e3d52;
+      --color-primary-dark: #131a24;
+      --color-accent: #e8b04b;
+      --color-accent-soft: #f5d9a0;
+      --color-bg: #f7f4ef;
+      --color-surface: #ffffff;
+      --color-surface-alt: #f0ece4;
+      --text-primary: #1e1e1e;
+      --text-secondary: #555;
+      --text-tertiary: #888;
+      --border-light: #e0dcd4;
+      --border-card: #eae6de;
+      --radius-card: 12px;
+      --radius-button: 8px;
+      --radius-tag: 4px;
+      --radius-banner: 16px;
+      --shadow-default: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.08);
+      --font-sans: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', system-ui, sans-serif;
+      --sticky-offset: 108px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--sticky-offset);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========== 吸顶公告条 ========== */
+    .announcement-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--color-primary-dark);
+      color: #ddd;
+      font-size: 13px;
+      padding: 0 24px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .announcement-bar .inner {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      max-width: 1360px;
+      margin: 0 auto;
+      width: 100%;
+      white-space: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .announcement-bar .inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .announcement-bar .brand-mark {
+      color: var(--color-accent);
+      font-weight: 600;
+      font-size: 13px;
+      flex-shrink: 0;
+      letter-spacing: 0.3px;
+    }
+
+    .announcement-bar .item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .announcement-bar .item .date {
+      color: var(--color-accent-soft);
+      font-size: 12px;
+    }
+
+    .announcement-bar .item .sep {
+      color: #556;
+      margin: 0 2px;
+    }
+
+    /* ========== 吸顶页头 ========== */
+    .site-header {
+      position: sticky;
+      top: 36px;
+      z-index: 99;
+      background: rgba(31, 42, 58, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      height: 64px;
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .logo svg {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 0 8px;
+    }
+
+    .header-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .header-nav a {
+      color: #bbc3ce;
+      font-size: 14px;
+      padding: 6px 12px;
+      border-radius: var(--radius-button);
+      white-space: nowrap;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .header-nav a:hover,
+    .header-nav a:focus-visible {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      outline: none;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .header-search {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-button);
+      padding: 0 10px;
+      height: 34px;
+      border: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .header-search:focus-within {
+      border-color: var(--color-accent);
+    }
+
+    .header-search input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-size: 13px;
+      width: 120px;
+      font-family: inherit;
+    }
+
+    .header-search input::placeholder {
+      color: #8a94a3;
+    }
+
+    .header-search svg {
+      width: 16px;
+      height: 16px;
+      fill: #8a94a3;
+      flex-shrink: 0;
+      margin-left: 4px;
+    }
+
+    .btn-submit {
+      background: var(--color-accent);
+      color: var(--color-primary-dark);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: var(--radius-button);
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .btn-submit:hover {
+      background: #f0c46a;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-button);
+      background: rgba(255, 255, 255, 0.1);
+      flex-shrink: 0;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* 移动端导航抽屉 */
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 150;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .mobile-nav-overlay.show {
+      display: block;
+      opacity: 1;
+    }
+
+    .mobile-nav-drawer {
+      position: fixed;
+      top: 0;
+      right: -280px;
+      width: 280px;
+      height: 100vh;
+      background: var(--color-primary);
+      z-index: 160;
+      padding: 80px 24px 32px;
+      transition: right 0.3s ease;
+      overflow-y: auto;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .mobile-nav-drawer.open {
+      right: 0;
+    }
+
+    .mobile-nav-drawer a {
+      display: block;
+      color: #bbc3ce;
+      font-size: 15px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: color 0.2s;
+    }
+
+    .mobile-nav-drawer a:hover,
+    .mobile-nav-drawer a:focus-visible {
+      color: var(--color-accent);
+      outline: none;
+    }
+
+    .mobile-nav-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ========== 首屏 ========== */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, var(--color-primary) 0%, #1a2635 40%, #2a1f1a 100%);
+      color: #fff;
+      padding: 56px 0 64px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232, 176, 75, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -160px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content {
+      flex: 1 1 55%;
+      min-width: 0;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      color: #c0c8d4;
+      line-height: 1.75;
+      max-width: 560px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--color-accent);
+      color: var(--color-primary-dark);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 12px 28px;
+      border-radius: var(--radius-button);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #f0c46a;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      color: #fff;
+      font-weight: 500;
+      font-size: 15px;
+      padding: 12px 24px;
+      border-radius: var(--radius-button);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--color-accent);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-visual {
+      flex: 1 1 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      min-height: 220px;
+    }
+
+    .hero-visual .frame-stack {
+      position: relative;
+      width: 240px;
+      height: 180px;
+    }
+
+    .frame-stack .card-shape {
+      position: absolute;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(4px);
+    }
+
+    .frame-stack .card-shape:nth-child(1) {
+      width: 160px;
+      height: 120px;
+      top: 0;
+      left: 20px;
+      transform: rotate(-6deg);
+      background: rgba(232, 176, 75, 0.15);
+      border-color: rgba(232, 176, 75, 0.3);
+    }
+
+    .frame-stack .card-shape:nth-child(2) {
+      width: 160px;
+      height: 120px;
+      top: 20px;
+      left: 50px;
+      transform: rotate(4deg);
+    }
+
+    .frame-stack .card-shape:nth-child(3) {
+      width: 160px;
+      height: 120px;
+      top: 40px;
+      left: 30px;
+      transform: rotate(-2deg);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .frame-stack .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      box-shadow: 0 4px 16px rgba(232, 176, 75, 0.4);
+      animation: pulse-soft 3s ease-in-out infinite;
+    }
+
+    .frame-stack .play-icon::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 14px solid var(--color-primary-dark);
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      margin-left: 4px;
+    }
+
+    @keyframes pulse-soft {
+      0%, 100% { box-shadow: 0 4px 16px rgba(232, 176, 75, 0.4); }
+      50% { box-shadow: 0 4px 28px rgba(232, 176, 75, 0.65); }
+    }
+
+    /* ========== 主区域三栏 ========== */
+    .main-layout {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr) 260px;
+      gap: 28px;
+      padding: 40px 0 60px;
+      align-items: start;
+    }
+
+    /* 左侧频道导航 */
+    .channel-sidebar {
+      position: sticky;
+      top: var(--sticky-offset);
+      background: var(--color-surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-card);
+      padding: 20px 0;
+      box-shadow: var(--shadow-default);
+    }
+
+    .channel-sidebar h2 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-tertiary);
+      padding: 0 20px 12px;
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 8px;
+    }
+
+    .channel-sidebar nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 20px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      transition: background 0.15s, color 0.15s;
+      border-left: 3px solid transparent;
+    }
+
+    .channel-sidebar nav a:hover,
+    .channel-sidebar nav a:focus-visible {
+      background: var(--color-surface-alt);
+      color: var(--text-primary);
+      outline: none;
+    }
+
+    .channel-sidebar nav a.current {
+      color: var(--color-primary);
+      font-weight: 600;
+      border-left-color: var(--color-accent);
+      background: #faf6ee;
+    }
+
+    .channel-sidebar nav a .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      flex-shrink: 0;
+    }
+
+    /* 中主内容 */
+    .main-content {
+      min-width: 0;
+    }
+
+    /* 板块通用 */
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .section-header h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 0.5px;
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .section-header h2::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 4px;
+      bottom: 4px;
+      width: 4px;
+      border-radius: 2px;
+      background: var(--color-accent);
+    }
+
+    .section-header .more-link {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      transition: color 0.2s;
+    }
+
+    .section-header .more-link:hover {
+      color: var(--color-primary);
+    }
+
+    .lead-text {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .lead-text p + p {
+      margin-top: 12px;
+    }
+
+    /* 概览板块 */
+    .overview-box {
+      background: var(--color-surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-card);
+      padding: 28px;
+      box-shadow: var(--shadow-default);
+    }
+
+    .overview-box .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: var(--radius-tag);
+      background: var(--color-surface-alt);
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    .tag-accent {
+      background: #fdf3e0;
+      color: #8a611e;
+    }
+
+    /* 精选卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .content-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-default);
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .content-card .thumb {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: var(--color-surface-alt);
+    }
+
+    .content-card .card-body {
+      padding: 14px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .content-card .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--text-primary);
+    }
+
+    .content-card .card-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    .content-card .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .content-card .card-tags {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .content-card .card-tags .tag {
+      font-size: 10px;
+      padding: 2px 7px;
+    }
+
+    .heat {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      color: #c0392b;
+      font-weight: 600;
+      font-size: 11px;
+    }
+
+    .heat svg {
+      width: 11px;
+      height: 11px;
+      fill: currentColor;
+    }
+
+    /* 最新更新列表 */
+    .update-list {
+      background: var(--color-surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-default);
+    }
+
+    .update-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border-light);
+      transition: background 0.15s;
+    }
+
+    .update-item:last-child {
+      border-bottom: none;
+    }
+
+    .update-item:hover {
+      background: #fcfaf7;
+    }
+
+    .update-item .update-date {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      white-space: nowrap;
+      min-width: 72px;
+      padding-top: 2px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .update-item .update-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .update-item .update-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .update-item .update-summary {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .category-chip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 18px 10px;
+      background: var(--color-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      text-align: center;
+      transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
+      cursor: pointer;
+    }
+
+    .category-chip:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+
+    .category-chip .cat-icon {
+      font-size: 20px;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+
+    .category-chip .cat-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .category-chip .cat-count {
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+
+    /* 深度解析 */
+    .deep-dive {
+      background: var(--color-surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-card);
+      padding: 32px;
+      box-shadow: var(--shadow-default);
+    }
+
+    .deep-dive h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 28px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .deep-dive h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .deep-dive p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+
+    .deep-dive ul {
+      margin: 12px 0 18px;
+      padding-left: 0;
+    }
+
+    .deep-dive ul li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+
+    .deep-dive ul li::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 9px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+
+    .deep-dive .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 13px;
+    }
+
+    .deep-dive .compare-table th,
+    .deep-dive .compare-table td {
+      border: 1px solid var(--border-light);
+      padding: 10px 14px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .deep-dive .compare-table th {
+      background: var(--color-surface-alt);
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .deep-dive .compare-table td {
+      color: var(--text-secondary);
+    }
+
+    /* 体验指南 */
+    .guide-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+    }
+
+    .guide-step {
+      background: var(--color-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      padding: 20px;
+      position: relative;
+      box-shadow: var(--shadow-default);
+    }
+
+    .guide-step .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .guide-step h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .guide-step p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: var(--color-surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-default);
+    }
+
+    .faq-list details {
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .faq-list details:last-child {
+      border-bottom: none;
+    }
+
+    .faq-list summary {
+      padding: 16px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: background 0.15s;
+    }
+
+    .faq-list summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-list summary::after {
+      content: '+';
+      font-size: 18px;
+      color: var(--text-tertiary);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+
+    .faq-list details[open] summary::after {
+      content: '−';
+    }
+
+    .faq-list summary:hover {
+      background: #fcfaf7;
+    }
+
+    .faq-list .faq-answer {
+      padding: 0 20px 18px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    /* 评论 */
+    .comment-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .comment-card {
+      background: var(--color-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      padding: 16px 18px;
+      box-shadow: var(--shadow-default);
+    }
+
+    .comment-card .comment-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .comment-card .avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--color-surface-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .comment-card .nickname {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .comment-card .comment-body {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* 资讯 */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .news-item {
+      display: flex;
+      gap: 16px;
+      background: var(--color-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-default);
+      transition: box-shadow 0.2s;
+    }
+
+    .news-item:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .news-item .news-thumb {
+      width: 120px;
+      height: 90px;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: var(--color-surface-alt);
+    }
+
+    .news-item .news-body {
+      padding: 12px 16px 12px 0;
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .news-item .news-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    .news-item .news-date {
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+
+    .news-item .news-summary {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* 相关推荐标签 */
+    .related-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .related-tags a {
+      display: inline-block;
+      font-size: 13px;
+      padding: 7px 16px;
+      border-radius: 20px;
+      background: var(--color-surface);
+      border: 1px solid var(--border-card);
+      color: var(--text-secondary);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .related-tags a:hover,
+    .related-tags a:focus-visible {
+      border-color: var(--color-accent);
+      color: var(--color-primary);
+      background: #fdf8ef;
+      outline: none;
+    }
+
+    /* 榜单 */
+    .ranking-list {
+      background: var(--color-surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-default);
+    }
+
+    .ranking-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .ranking-item:last-child {
+      border-bottom: none;
+    }
+
+    .ranking-item .rank-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: var(--color-surface-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .ranking-item:nth-child(1) .rank-num {
+      background: var(--color-accent);
+      color: var(--color-primary-dark);
+    }
+
+    .ranking-item:nth-child(2) .rank-num {
+      background: #e8e0d0;
+      color: var(--color-primary);
+    }
+
+    .ranking-item:nth-child(3) .rank-num {
+      background: #f0e6d6;
+      color: var(--color-primary);
+    }
+
+    .ranking-item .rank-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      flex: 1;
+      min-width: 0;
+    }
+
+    .ranking-item .rank-score {
+      font-size: 12px;
+      color: #c0392b;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    /* 投稿互动 */
+    .contribute-box {
+      background: linear-gradient(135deg, #1f2a3a 0%, #2a3448 100%);
+      border-radius: var(--radius-banner);
+      padding: 32px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contribute-box::before {
+      content: '';
+      position: absolute;
+      right: -40px;
+      top: -40px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: rgba(232, 176, 75, 0.1);
+      pointer-events: none;
+    }
+
+    .contribute-box .contribute-text {
+      flex: 1;
+      min-width: 200px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contribute-box h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .contribute-box p {
+      font-size: 13px;
+      color: #b0b8c4;
+      line-height: 1.6;
+    }
+
+    .contribute-box .btn-primary {
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    /* 右侧辅助栏 */
+    .aux-sidebar {
+      position: sticky;
+      top: var(--sticky-offset);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .aux-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-card);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-default);
+    }
+
+    .aux-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .aux-card .hot-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid #f4f1eb;
+      font-size: 13px;
+    }
+
+    .aux-card .hot-list li:last-child {
+      border-bottom: none;
+    }
+
+    .aux-card .hot-list .num {
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      width: 18px;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+
+    .aux-card .hot-list .num.top {
+      color: #c0392b;
+    }
+
+    .aux-card .hot-list .txt {
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    .aux-card .hot-list .txt strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .aux-card .update-mini li {
+      padding: 7px 0;
+      border-bottom: 1px solid #f4f1eb;
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .aux-card .update-mini li:last-child {
+      border-bottom: none;
+    }
+
+    .aux-card .update-mini .mini-date {
+      color: var(--text-tertiary);
+      font-size: 11px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* 回到顶部 */
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+      z-index: 90;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      background: var(--color-primary-light);
+    }
+
+    .back-to-top svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* 页脚 */
+    .site-footer {
+      background: var(--color-primary-dark);
+      color: #9aa4b2;
+      padding: 48px 0 32px;
+      font-size: 13px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 36px;
+    }
+
+    .footer-brand .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand .footer-logo svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    .footer-brand .footer-logo span {
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .footer-brand .footer-desc {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #8892a0;
+      max-width: 320px;
+    }
+
+    .footer-col h4 {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-col a {
+      display: block;
+      color: #8892a0;
+      font-size: 13px;
+      padding: 4px 0;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--color-accent);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: #6b7585;
+    }
+
+    .footer-bottom .footer-meta {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* ========== 响应式 ========== */
+    @media (max-width: 1024px) {
+      .main-layout {
+        grid-template-columns: 170px minmax(0, 1fr);
+        gap: 24px;
+      }
+
+      .aux-sidebar {
+        display: none;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .comment-list {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        flex-direction: column;
+        gap: 32px;
+        text-align: center;
+      }
+
+      .hero-content {
+        flex: 1 1 auto;
+      }
+
+      .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        flex: 1 1 auto;
+        min-height: 160px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 740px) {
+      :root {
+        --sticky-offset: 100px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .announcement-bar {
+        font-size: 12px;
+        padding: 0 16px;
+        height: 32px;
+      }
+
+      .site-header {
+        top: 32px;
+      }
+
+      .header-inner {
+        height: 56px;
+        padding: 0 16px;
+        gap: 12px;
+      }
+
+      .logo-text {
+        font-size: 15px;
+      }
+
+      .header-nav {
+        display: none;
+      }
+
+      .header-search {
+        display: none;
+      }
+
+      .btn-submit {
+        font-size: 12px;
+        padding: 6px 12px;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .main-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 24px 0 40px;
+      }
+
+      .channel-sidebar {
+        position: static;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 4px;
+        padding: 10px 12px;
+        scrollbar-width: none;
+      }
+
+      .channel-sidebar::-webkit-scrollbar {
+        display: none;
+      }
+
+      .channel-sidebar h2 {
+        display: none;
+      }
+
+      .channel-sidebar nav {
+        display: flex;
+        gap: 4px;
+      }
+
+      .channel-sidebar nav a {
+        padding: 7px 14px;
+        font-size: 13px;
+        white-space: nowrap;
+        border-left: none;
+        border-radius: 20px;
+        background: var(--color-surface-alt);
+      }
+
+      .channel-sidebar nav a.current {
+        background: var(--color-primary);
+        color: #fff;
+        border-left: none;
+      }
+
+      .channel-sidebar nav a .dot {
+        display: none;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .news-item .news-thumb {
+        width: 90px;
+        height: 72px;
+      }
+
+      .deep-dive {
+        padding: 20px;
+      }
+
+      .deep-dive .compare-table {
+        font-size: 12px;
+      }
+
+      .deep-dive .compare-table th,
+      .deep-dive .compare-table td {
+        padding: 8px;
+      }
+
+      .section-header h2 {
+        font-size: 18px;
+      }
+
+      .hero {
+        padding: 36px 0 44px;
+      }
+
+      .hero h1 {
+        font-size: 26px;
+      }
+
+      .hero-desc {
+        font-size: 14px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .contribute-box {
+        padding: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .guide-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .back-to-top {
+        bottom: 20px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* 搜索无结果提示 */
+    .search-no-result {
+      display: none;
+      padding: 20px;
+      text-align: center;
+      color: var(--text-tertiary);
+      font-size: 14px;
+      background: var(--color-surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-card);
+    }
+
+    .search-no-result.show {
+      display: block;
+    }
+
+    .search-highlight {
+      background: #fdf3e0;
+      outline: 2px solid var(--color-accent);
+      border-radius: 4px;
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="announcement-bar">
+  <div class="inner">
+    <span class="brand-mark">GV网站一同入口</span>
+    <span class="item">
+      <span class="date">11月7日</span>
+      <span class="sep">·</span>
+      <span>《夜行列车》第三集上线，导演剪辑版同步更新</span>
+    </span>
+    <span class="item">
+      <span class="date">11月6日</span>
+      <span class="sep">·</span>
+      <span>演员访谈专题「镜头之外」新增 4 位嘉宾</span>
+    </span>
+    <span class="item">
+      <span class="date">11月5日</span>
+      <span class="sep">·</span>
+      <span>本月片单投票：12 部候选作品开放投票</span>
+    </span>
+  </div>
+</div>
+
+<!-- 吸顶页头 -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo" aria-label="GV网站一同入口首页">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="36" height="36" rx="9" fill="#e8b04b"/>
+        <rect x="8" y="9" width="20" height="4" rx="1.5" fill="#1f2a3a"/>
+        <rect x="8" y="16" width="20" height="4" rx="1.5" fill="#1f2a3a"/>
+        <rect x="8" y="23" width="13" height="4" rx="1.5" fill="#1f2a3a"/>
+      </svg>
+      <span class="logo-text">GV网站一同入口</span>
+    </a>
+
+    <nav class="header-nav" aria-label="主导航">
+      <a href="/#section-overview">领域概览</a>
+      <a href="/#section-featured">精选片单</a>
+      <a href="/#section-updates">最新更新</a>
+      <a href="/#section-categories">分类入口</a>
+      <a href="/#section-deepdive">深度解析</a>
+      <a href="/#section-guide">观看指南</a>
+      <a href="/#section-faq">常见问题</a>
+      <a href="/#section-news">相关资讯</a>
+      <a href="/#section-ranking">热门榜单</a>
+      <a href="/#section-contribute">投稿互动</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="header-search" role="search">
+        <input type="search" id="searchInput" placeholder="搜索作品或演员..." aria-label="搜索作品或演员">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      </div>
+      <a href="/#section-contribute" class="btn-submit">投稿</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false" aria-controls="mobileDrawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- 移动端导航抽屉 -->
+<div class="mobile-nav-overlay" id="mobileOverlay"></div>
+<div class="mobile-nav-drawer" id="mobileDrawer" role="dialog" aria-label="移动端导航">
+  <button class="mobile-nav-close" id="mobileCloseBtn" aria-label="关闭菜单">×</button>
+  <a href="/#section-overview">领域概览</a>
+  <a href="/#section-featured">精选片单</a>
+  <a href="/#section-updates">最新更新</a>
+  <a href="/#section-categories">分类入口</a>
+  <a href="/#section-deepdive">深度解析</a>
+  <a href="/#section-guide">观看指南</a>
+  <a href="/#section-faq">常见问题</a>
+  <a href="/#section-comments">用户评论</a>
+  <a href="/#section-news">相关资讯</a>
+  <a href="/#section-related">相关推荐</a>
+  <a href="/#section-ranking">热门榜单</a>
+  <a href="/#section-contribute">投稿互动</a>
+</div>
+
+<!-- 首屏 -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <span class="hero-eyebrow">GV 题材内容聚合</span>
+      <h1>GV网站一同入口</h1>
+      <p class="hero-desc">
+        汇集近期GV题材影视作品、演员访谈与幕后制作动态。按剧情长片、系列短剧、纪录片、访谈花絮分类整理，提供片单筛选、观看顺序建议与常见问题解答，适合关注男性向影视内容的观众与创作者参考。
+      </p>
+      <div class="hero-actions">
+        <a href="/#section-featured" class="btn-primary">浏览精选片单</a>
+        <a href="/#section-updates" class="btn-ghost">查看最新更新</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="frame-stack">
+        <div class="card-shape"></div>
+        <div class="card-shape"></div>
+        <div class="card-shape"></div>
+        <div class="play-icon"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 主区域 三栏 -->
+<div class="container">
+  <div class="main-layout">
+
+    <!-- 左侧频道索引 -->
+    <aside class="channel-sidebar" aria-label="频道索引">
+      <h2>频道索引</h2>
+      <nav id="channelNav">
+        <a href="/#section-overview"><span class="dot"></span>领域概览</a>
+        <a href="/#section-featured"><span class="dot"></span>精选片单</a>
+        <a href="/#section-updates"><span class="dot"></span>最新更新</a>
+        <a href="/#section-categories"><span class="dot"></span>分类入口</a>
+        <a href="/#section-deepdive"><span class="dot"></span>深度解析</a>
+        <a href="/#section-guide"><span class="dot"></span>观看指南</a>
+        <a href="/#section-faq"><span class="dot"></span>常见问题</a>
+        <a href="/#section-comments"><span class="dot"></span>用户评论</a>
+        <a href="/#section-news"><span class="dot"></span>相关资讯</a>
+        <a href="/#section-related"><span class="dot"></span>相关推荐</a>
+        <a href="/#section-ranking"><span class="dot"></span>热门榜单</a>
+        <a href="/#section-contribute"><span class="dot"></span>投稿互动</a>
+      </nav>
+    </aside>
+
+    <!-- 中主内容 -->
+    <main class="main-content">
+
+      <!-- 1. 领域概览 -->
+      <section class="section" id="section-overview">
+        <div class="section-header">
+          <h2>GV 题材内容方向与近期值得关注的作品</h2>
+        </div>
+        <div class="overview-box">
+          <p class="lead-text">
+            GV 题材在 2026 年的内容版图已经比五年前复杂得多。按制作形态可以分成几类：一是单集 40—60 分钟的剧情长片，多由独立制片团队出品，在固定平台首播；二是 6—12 集的系列短剧，每集 15—25 分钟，节奏快、成本低，近两年数量增长明显；三是纪录片与幕后花絮，围绕演员选角、片场工作流程展开，在访谈类账号上更新频繁；四是演员个人企划，包括写真拍摄、线下见面会记录和短视频日常。近期值得留意的几个方向：系列短剧《夜行列车》在 10 月底放出第三集后，单周播放量冲到平台剧情类前三；纪录片《镜头之外》第二季在 11 月 3 日上线了四位新嘉宾的访谈，其中两位谈到了入行初期的选角流程；独立制片团队「暗房计划」在 11 月 1 日公布了 2027 年片单的六部新作，三部为长片、三部为短剧。演员方面，2025 年从短剧出道的铃木遥在 10 月 28 日宣布参与长片《潮汐之间》的拍摄，这是他第一次担纲电影级制作的主演。观众层面，平台在 10 月做的用户调研显示，选片时最看重的三个因素依次是演员阵容（62%）、剧情简介（48%）和导演过往作品（35%），制作公司的品牌影响力排在第六位。
+          </p>
+          <div class="tag-row">
+            <span class="tag tag-accent">剧情长片</span>
+            <span class="tag tag-accent">系列短剧</span>
+            <span class="tag tag-accent">纪录片</span>
+            <span class="tag tag-accent">演员访谈</span>
+            <span class="tag">幕后花絮</span>
+            <span class="tag">独立制片</span>
+            <span class="tag">选角动态</span>
+            <span class="tag">片单投票</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. 精选内容推荐 -->
+      <section class="section" id="section-featured">
+        <div class="section-header">
+          <h2>近期值得观看的 9 部作品与专题</h2>
+          <a href="/#section-categories" class="more-link">按分类查看 →</a>
+        </div>
+        <div class="card-grid" id="featuredGrid">
+          <!-- 卡片 1 -->
+          <article class="content-card">
+            <img class="thumb" src="https://picsum.photos/seed/gv-nighttrain1/400/300" width="400" height="300" loading="lazy" alt="《夜行列车》第三集剧照，夜间车厢场景">
+            <div class="card-body">
+              <h3 class="card-title">《夜行列车》第三集：导演剪辑版</h3>
+              <p class="card-desc">系列短剧第三集加入约 8 分钟未公开片段，补全了主角在车厢连接处的独白。导演中村在 11 月 6 日的直播中提到，这段是初剪时因时长被拿掉的。</p>
+              <div class="card-tags">
+                <span class="tag">系列短剧</span>
+                <span class="tag">导演剪辑</span>
+                <span class="tag">悬疑</span>
+              </div>
+              <div class="card-meta">
+                <span class="heat"><svg viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>9.2k</span>
+                <span>11月7日更新</span>
+              </div>
+            </div>
+          </article>
+          <!-- 卡片 2 -->
+          <article class="content-card">
+            <img class="thumb" src="https://picsum.photos/seed/gv-tidefilm2/400/300" width="400" height="300" loading="lazy" alt="《潮汐之间》片场工作照，海边礁石场景">
+            <div class="card-body">
+              <h3 class="card-title">《潮汐之间》首支预告解析</h3>
+              <p class="card-desc">铃木遥首次担纲长片主演，预告片 2 分 14 秒里出现三个时间线交叉。制片方在 11 月 2 日的新闻稿中确认成片 118 分钟，2027 年 2 月公映。</p>
+              <div class="card-tags">
+                <span class="tag">剧情长片</span>
+                <span class="tag">预告解析</span>
+                <span class="tag">新片</span>
+              </div>
+              <div class="card-meta">
+                <span class="heat"><svg viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>7.8k</span>
+                <span>11月2日发布</span>
+              </div>
+            </div>
+          </article>
+          <!-- 卡片 3 -->
+          <article class="content-card">
+            <img class="thumb" src="https://picsum.photos/seed/gv-lens2/400/300" width="400" height="300" loading="lazy" alt="纪录片《镜头之外》第二季访谈现场，两位受访者对话">
+            <div class="card-body">
+              <h3 class="card-title">《镜头之外》第二季：选角导演访谈</h3>
+              <p class="card-desc">第二季第 4 集请到选角导演佐藤，他讲了 2024—2026 年间短剧选角标准的变化：从看照片转向看即兴表演视频，提交材料里增加 30 秒自我介绍环节。</p>
+              <div class="card-tags">
+                <span class="tag">纪录片</span>
+                <span class="tag">选角</span>
+                <span class="tag">幕后</span>
+              </div>
+              <div class="card-meta">
+                <span class="heat"><svg viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>5.6k</span>
+                <span>11月3日上线</span>
+              </div>
+            </div>
+          </article>
+          <!-- 卡片 4 -->
+          <article class="content-card">
+            <img class="thumb" src="https://picsum.photos/seed/gv-darkroom3/400/300" width="400" height="300" loading="lazy" alt="「暗房计划」2027年片单发布会现场，六部作品海报墙">
+            <div class="card-body">
+              <h3 class="card-title">「暗房计划」2027 片单：六部新作</h3>
+              <p class="card-desc">独立制片团队在 11 月 1 日公布三年计划中的第一批：三部 90 分钟以上长片、三部 8 集短剧。其中《海风停靠》已进入后期，预计 2027 年 4 月上线。</p>
+              <div class="card-tags">
+                <span class="tag">独立制片</span>
+                <span class="tag">片单</span>
+                <span class="tag">2027</span>
+              </div>
+              <div class="card-meta">
+                <span class="heat"><svg viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>4.9k</span>
+                <span>11月1日发布</span>
+              </div>
+            </div>
+          </article>
+          <!-- 卡片 5 -->
+          <article class="content-card">
+            <img class="thumb" src="https://picsum.photos/seed/gv-suzuki4/400/300" width="400" height="300" loading="lazy" alt="铃木遥在《潮汐之间》媒体见面会上的单人照">
+            <div class="card-body">
+              <h3 class="card-title">铃木遥：从短剧到长片的 18 个月</h3>
+              <p class="card-desc">2025 年 3 月还在短剧《站台》里演配角，2026 年 10 月已拿到长片主演。他在 10 月 30 日的采访里复盘了三次关键试镜，包括一次被拒后重新提交材料的经历。</p>
+              <div class="card-tags">
+                <span class="tag">演员专访</span>
+                <span class="tag">职业路径</span>
+                <span class="tag">铃木遥</span>
+              </div>
+              <div class="card-meta">
+                <span class="heat"><svg viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>6.4k</span>
+                <span>10月30日发布</span>
+              </div>
+            </div>
+          </article>
+          <!-- 卡片 6 -->
+          <article class="content-card">
+            <img class="thumb" src="https://picsum.photos/seed/gv-station5/400/300" width="400" height="300" loading="lazy" alt="短剧《站台》第一季海报，月台与列车剪影">
+            <div class="card-body">
+              <h3 class="card-title">《站台》第一季：低成本短剧的叙事样本</h3>
+              <p class="card-desc">全季 8 集，单集成本约 35 万日元，场景固定在同一个车站。2026 年 9 月重播时播放量比首播高出 40%，观众在评论区讨论最多的是第 5 集的长镜头。</p>
+              <div class="card-tags">
+                <span class="tag">系列短剧</span>
+                <span class="tag">低成本</span>
+                <span class="tag">叙事分析</span>
+              </div>
+              <div class="card-meta">
+                <span class="heat"><svg viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>5.1k</span>
+                <span>10月26日重播</span>
+              </div>
+            </div>
+          </article>
+          <!-- 卡片 7 -->
+          <article class="content-card">
+            <img class="thumb" src="https://picsum.photos/seed/gv-mountain6/400/300" width="400" height="300" loading="lazy" alt="长片《山雾》海报，山间雾气与人物背影">
+            <div class="card-body">
+              <h3 class="card-title">《山雾》：2026 年评分最高的剧情长片</h3>
+              <p class="card-desc">10 月 15 日上线后，平台评分稳定在 8.7 分（满分 10），评论数突破 1200 条。导演佐佐木在采访中说，全片 70% 的镜头在海拔 1500 米以上的山区拍摄。</p>
+              <div class="card-tags">
+                <span class="tag">剧情长片</span>
+                <span class="tag">高分</span>
+                <span class="tag">自然场景</span>
+              </div>
+              <div class="card-meta">
+                <span class="heat"><svg viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>8.3k</span>
+                <span>10月15日上线</span>
+              </div>
+            </div>
+          </article>
+          <!-- 卡片 8 -->
+          <article class="content-card">
+            <img class="thumb" src="https://picsum.photos/seed/gv-vote7/400/300" width="400" height="300" loading="lazy" alt="本月片单投票页面截图，12部候选作品列表">
+            <div class="card-body">
+              <h3 class="card-title">11 月片单投票：12 部候选开放中</h3>
+              <p class="card-desc">投票从 11 月 5 日持续到 11 月 20 日，得票最高的 3 部将在 12 月片单推荐位展示。目前《夜行列车》第三集以 2847 票领跑，《山雾》和《站台》分列二三位。</p>
+              <div class="card-tags">
+                <span class="tag">互动</span>
+                <span class="tag">片单投票</span>
+                <span class="tag">11月</span>
+              </div>
+              <div class="card-meta">
+                <span class="heat"><svg viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>3.7k</span>
+                <span>11月5日开启</span>
+              </div>
+            </div>
+          </article>
+          <!-- 卡片 9 -->
+          <article class="content-card">
+            <img class="thumb" src="https://picsum.photos/seed/gv-shortfilm8/400/300" width="400" height="300" loading="lazy" alt="短片合集《十五分钟》封面，胶片盘与时钟元素">
+            <div class="card-body">
+              <h3 class="card-title">短片合集《十五分钟》：新人导演专场</h3>
+              <p class="card-desc">收录 5 部新人导演作品，每部 12—18 分钟。其中《泳池边》在 10 月 20 日获得平台月度短片奖，导演是第一次拍GV题材，此前拍广告出身。</p>
+              <div class="card-tags">
+                <span class="tag">短片合集</span>
+                <span class="tag">新人导演</span>
+                <span class="tag">月度奖</span>
+              </div>
+              <div class="card-meta">
+                <span class="heat"><svg viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>4.2k</span>
+                <span>10月20日获奖</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="search-no-result" id="searchNoResult">没有匹配的作品或演员，换个关键词试试。</div>
+      </section>
+
+      <!-- 3. 最新更新 -->
+      <section class="section" id="section-updates">
+        <div class="section-header">
+          <h2>11 月第一周更新与上线记录</h2>
+        </div>
+        <div class="update-list">
+          <div class="update-item">
+            <span class="update-date">11月7日</span>
+            <div class="update-body">
+              <div class="update-title">《夜行列车》第三集导演剪辑版上线</div>
+              <div class="update-summary">新增 8 分钟未公开片段，包含主角在车厢连接处的独白；导演中村在直播中确认第四集 11 月中旬上线。</div>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11月6日</span>
+            <div class="update-body">
+              <div class="update-title">演员访谈专题「镜头之外」新增 4 位嘉宾</div>
+              <div class="update-summary">第二季第 3—6 集上线，嘉宾包括选角导演佐藤、演员铃木遥、制片人山田和摄影指导小林。</div>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11月5日</span>
+            <div class="update-body">
+              <div class="update-title">11 月片单投票开放：12 部候选作品</div>
+              <div class="update-summary">投票持续至 11 月 20 日，得票前三将在 12 月推荐位展示；截至 11 月 7 日已有 8600 余人参与。</div>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11月4日</span>
+            <div class="update-body">
+              <div class="update-title">《潮汐之间》发布第二支幕后花絮</div>
+              <div class="update-summary">时长 6 分 22 秒，聚焦海边礁石场景的拍摄，铃木遥在花絮里提到连续三天在雨中拍摄的体力消耗。</div>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11月3日</span>
+            <div class="update-body">
+              <div class="update-title">纪录片《镜头之外》第二季第 4 集上线</div>
+              <div class="update-summary">选角导演佐藤展示 2024—2026 年提交材料的变化：即兴表演视频提交比例从 22% 上升到 67%。</div>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11月2日</span>
+            <div class="update-body">
+              <div class="update-title">《潮汐之间》首支预告发布</div>
+              <div class="update-summary">2 分 14 秒，三个时间线交叉剪辑；制片方确认成片 118 分钟，2027 年 2 月公映。</div>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">11月1日</span>
+            <div class="update-body">
+              <div class="update-title">「暗房计划」公布 2027 年六部新作片单</div>
+              <div class="update-summary">三部长片、三部 8 集短剧，其中《海风停靠》已进入后期，预计 2027 年 4 月上线。</div>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">10月30日</span>
+            <div class="update-body">
+              <div class="update-title">铃木遥专访发布：从短剧到长片的 18 个月</div>
+              <div class="update-summary">复盘三次关键试镜经历，包括一次被拒后重新提交材料的细节；采访全文约 4500 字。</div>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">10月28日</span>
+            <div class="update-body">
+              <div class="update-title">《潮汐之间》官宣主演阵容</div>
+              <div class="update-summary">铃木遥担纲主演，共演包括舞台剧演员大野健和新人松本莉子；拍摄周期 45 天。</div>
+            </div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">10月26日</span>
+            <div class="update-body">
+              <div class="update-title">《站台》第一季重播，播放量上涨 40%</div>
+              <div class="update-summary">2026 年 9 月重播以来，第 5 集长镜头片段在短视频平台被二次剪辑传播，带动全季播放。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. 分类入口 -->
+      <section class="section" id="section-categories">
+        <div class="section-header">
+          <h2>按内容类型与制作形态查找</h2>
+        </div>
+        <div class="category-grid">
+          <a href="/#section-featured" class="category-chip">
+            <span class="cat-icon">🎬</span>
+            <span class="cat-name">剧情长片</span>
+            <span class="cat-count">86 部</span>
+          </a>
+          <a href="/#section-featured" class="category-chip">
+            <span class="cat-icon">📺</span>
+            <span class="cat-name">系列短剧</span>
+            <span class="cat-count">142 部</span>
+          </a>
+          <a href="/#section-featured" class="category-chip">
+            <span class="cat-icon">🎥</span>
+            <span class="cat-name">纪录片</span>
+            <span class="cat-count">37 部</span>
+          </a>
+          <a href="/#section-featured" class="category-chip">
+            <span class="cat-icon">🎤</span>
+            <span class="cat-name">演员访谈</span>
+            <span class="cat-count">64 期</span>
+          </a>
+          <a href="/#section-featured" class="category-chip">
+            <span class="cat-icon">📷</span>
+            <span class="cat-name">幕后花絮</span>
+            <span class="cat-count">91 条</span>
+          </a>
+          <a href="/#section-featured" class="category-chip">
+            <span class="cat-icon">🎞️</span>
+            <span class="cat-name">短片合集</span>
+            <span class="cat-count">28 部</span>
+          </a>
+          <a href="/#section-featured" class="category-chip">
+            <span class="cat-icon">🏔️</span>
+            <span class="cat-name">户外实景</span>
+            <span class="cat-count">19 部</span>
+          </a>
+          <a href="/#section-contribute" class="category-chip">
+            <span class="cat-icon">✍️</span>
+            <span class="cat-name">影评投稿</span>
+            <span class="cat-count">开放中</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 5. 深度解析 -->
+      <section class="section" id="section-deepdive">
+        <div class="section-header">
+          <h2>短剧与长片之间：制作规格如何影响叙事密度</h2>
+        </div>
+        <div class="deep-dive">
+          <p>
+            2026 年GV题材内容的产量比 2024 年翻了近一倍，但观众在选片时面对的一个实际问题是：同样标着「剧情」标签，一部 8 集短剧和一部 118 分钟的长片，叙事节奏、信息密度和观看体验差异很大。这个差异不来自题材，来自制作规格——预算、拍摄周期和发布平台的推荐机制共同决定了作品能承载多少内容。
+          </p>
+
+          <h3>单集时长与信息密度的对应关系</h3>
+          <p>
+            从 2026 年 1 月到 10 月平台上线的 142 部系列短剧中，单集 15 分钟以下的有 89 部，15—25 分钟的有 41 部，25 分钟以上的只有 12 部。单集越短，每集能承载的情节推进越有限，通常只能完成一个场景或一组对话。《站台》第一季单集 18 分钟，8 集讲完一个完整故事线，平均每集推进 1.2 个情节节点。相比之下，《山雾》118 分钟的长片包含 17 个场景、4 条人物关系线。短剧的信息密度靠「每集必须留一个钩子」来维持，长片则可以用连续场景建立情绪积累。
+          </p>
+          <p>
+            选角导演佐藤在《镜头之外》第二季第 4 集里提到一个数据：2026 年提交的短剧试镜材料中，平均每段表演视频时长 47 秒，而长片试镜视频平均 2 分 10 秒。制作方对短剧演员的要求更偏向「快速进入状态」，长片则看重「持续输出的稳定性」。这个差异直接反映在成片里：短剧演员的表演通常更外放、节奏更快，长片演员有更多停顿和留白。
+          </p>
+
+          <h3>预算差异如何改变场景选择</h3>
+          <p>
+            「暗房计划」在 11 月 1 日公布的片单里，三部短剧的预算区间是 400—600 万日元，三部长片是 1800—3200 万日元。预算差距首先体现在场景数量上：短剧通常 3—5 个主要场景，长片可以到 12—20 个。《站台》全季固定在同一个车站拍摄，场景成本被压缩到最低，省下来的钱用在演员排练上——导演在 10 月的采访里说，开拍前进行了 3 周排练，这在短剧制作里算长的。
+          </p>
+          <p>
+            长片的预算更多花在实景拍摄和后期上。《山雾》在海拔 1500 米以上的山区拍了 22 天，占总拍摄周期的 55%。《潮汐之间》的礁石场景需要配合潮汐时间，拍摄计划被拆成 11 个半天。这些安排带来的画面质感差异，是观众在选片时能直接感知到的——户外实景的光线和空间感，棚拍很难完全复制。
+          </p>
+
+          <h3>叙事策略的取舍清单</h3>
+          <p>
+            把短剧和长片的叙事差异拆成可核对的维度，大致是下面几项：
+          </p>
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>维度</th>
+                <th>系列短剧（单集 15—25 分钟）</th>
+                <th>剧情长片（90 分钟以上）</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>场景数量</td>
+                <td>3—5 个主要场景</td>
+                <td>12—20 个场景</td>
+              </tr>
+              <tr>
+                <td>人物关系线</td>
+                <td>1—2 条</td>
+                <td>3—5 条</td>
+              </tr>
+              <tr>
+                <td>单集/全片节奏</td>
+                <td>每集结尾留钩子</td>
+                <td>按幕结构推进</td>
+              </tr>
+              <tr>
+                <td>演员排练周期</td>
+                <td>1—3 周</td>
+                <td>4—6 周</td>
+              </tr>
+              <tr>
+                <td>后期周期</td>
+                <td>2—4 周</td>
+                <td>8—12 周</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            这张表解释了一个常见现象：观众在短剧里看到喜欢的演员，转到长片时可能觉得「节奏慢了」。慢的部分来自长片需要用更多场景和停顿建立人物关系的前史，短剧没有这个空间，直接用台词交代。两种策略没有优劣，取决于观众当下想看的是快速推进还是沉浸式铺陈。
+          </p>
+
+          <h3>平台推荐机制对制作端的影响</h3>
+          <p>
+            平台在 2026 年 8 月调整了短剧的推荐逻辑：前 3 集完播率权重从 40% 降到 25%，新增「追更率」指标——看完第 1 集后 7 天内看第 2 集的比例。这个变化让制作方在写第 1 集时更在意「留人」而不是「炸场」。10 月上线的短剧《夜行列车》第 1 集在结尾处没有设置强冲突，而是用主角在车厢里接到一通电话来收束，追更率反而达到 71%，高于平台短剧平均值 58%。制片人在 11 月 6 日的直播里提到，这个结尾是平台调整规则后重新剪辑的版本。
+          </p>
+          <p>
+            长片的推荐逻辑不同，平台按「评分+评论数」做加权，上线首周的评分稳定性比首日播放量更重要。《山雾》上线首日播放量在当周排第四，但评分稳定在 8.7 分，第二周被推上首页推荐位，播放量反超首周。制作方在选长片题材时会考虑「评分友好度」——节奏舒缓、摄影出彩的作品更容易拿到高评分，动作或强情节向的长片评分波动更大。
+          </p>
+        </div>
+      </section>
+
+      <!-- 6. 体验指南 -->
+      <section class="section" id="section-guide">
+        <div class="section-header">
+          <h2>从类型偏好出发的观看路径与判断依据</h2>
+        </div>
+        <div class="guide-steps">
+          <div class="guide-step">
+            <div class="step-num">1</div>
+            <h4>先定单次观看时长</h4>
+            <p>只有 20 分钟就看单集短剧，能坐满两小时再考虑长片。短剧在通勤时段看完一集不影响剧情连贯，长片中途打断会丢失情绪积累。</p>
+          </div>
+          <div class="guide-step">
+            <div class="step-num">2</div>
+            <h4>看演员表是否重复合作</h4>
+            <p>同一位演员和同一位导演合作超过两次的作品，通常有稳定的表演默契。铃木遥和中村导演在《站台》和《夜行列车》里合作过两次，第三次合作是《潮汐之间》。</p>
+          </div>
+          <div class="guide-step">
+            <div class="step-num">3</div>
+            <h4>查制作方过往片单</h4>
+            <p>「暗房计划」之前出过三部短剧，平均评分 7.9；另一个高频出现的制作方「海风社」出过五部，评分跨度 6.2—8.4，波动大。看制作方历史比看单部预告更可靠。</p>
+          </div>
+          <div class="guide-step">
+            <div class="step-num">4</div>
+            <h4>用评论数过滤冷门</h4>
+            <p>上线一周评论数低于 80 条的作品，不一定差，但可参考的观众反馈太少。评论数在 300—800 区间的作品，通常有足够多的具体讨论可以判断是否合口味。</p>
+          </div>
+          <div class="guide-step">
+            <div class="step-num">5</div>
+            <h4>比较同题材的不同拍法</h4>
+            <p>同样讲夜晚场景，《夜行列车》用封闭车厢制造压迫感，《站台》用空荡月台做留白。先看两部的 3 分钟片段，再决定追哪一部，比看评分更直接。</p>
+          </div>
+          <div class="guide-step">
+            <div class="step-num">6</div>
+            <h4>纪录片放在最后补</h4>
+            <p>《镜头之外》这类访谈纪录片，适合在看完正片后补。先知道演员在作品里怎么演，再听他们讲选角和排练过程，信息才对得上号。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. FAQ -->
+      <section class="section" id="section-faq">
+        <div class="section-header">
+          <h2>观众常问的 6 个问题</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>《夜行列车》第三集导演剪辑版和普通版差在哪？</summary>
+            <div class="faq-answer">
+              多出约 8 分钟片段，集中在主角在车厢连接处的独白和一场原本被剪掉的站台告别戏。导演中村在 11 月 6 日的直播里说明，这段是初剪时因单集时长限制拿掉的，第二版剪辑把第四集的部分内容后移，才腾出空间放回来。
+            </div>
+          </details>
+          <details>
+            <summary>铃木遥在《潮汐之间》之前演过哪些作品？</summary>
+            <div class="faq-answer">
+              2025 年 3 月在短剧《站台》第一季里演配角「阿透」，戏份集中在第 4—6 集。2025 年 9 月出演短剧《夜行列车》第一季第 2 集。2026 年 1 月在一部 40 分钟的短片《泳池边》里担任主演，该片获得平台月度短片奖。
+            </div>
+          </details>
+          <details>
+            <summary>「暗房计划」2027 年片单里哪部最早上线？</summary>
+            <div class="faq-answer">
+              《海风停靠》进度最快，11 月 1 日公布时已进入后期制作，预计 2027 年 4 月上线。另外两部短剧《回声》和《夜路》还在前期筹备，长片《深水区》计划 2027 年夏季开拍。
+            </div>
+          </details>
+          <details>
+            <summary>系列短剧和剧情长片的评分可以直接比较吗？</summary>
+            <div class="faq-answer">
+              平台用的是同一套 10 分制，但评论基数差异很大。短剧平均评论数在 200—400 条，长片在 800—1500 条。评分 8.0 的短剧如果只有 150 条评论，参考价值低于评分 7.5、评论数 900 条的长片。看评分时最好同时看评论数。
+            </div>
+          </details>
+          <details>
+            <summary>11 月片单投票的规则是什么？</summary>
+            <div class="faq-answer">
+              12 部候选作品来自 2026 年 1—10 月上线的内容，每位用户每天可投 3 票，同一部作品每天限投 1 票。投票从 11 月 5 日持续到 11 月 20 日，得票最高的 3 部将在 12 月片单推荐位展示，推荐位展示周期为一个月。
+            </div>
+          </details>
+          <details>
+            <summary>《镜头之外》第二季和第一季的访谈对象有什么区别？</summary>
+            <div class="faq-answer">
+              第一季以演员为主，6 集里有 5 集是演员访谈。第二季把镜头转向幕后，第 3—6 集分别请了选角导演佐藤、制片人山田、摄影指导小林和剪辑师高桥。选角导演那集信息量最大，讲了 2024—2026 年试镜材料的变化。
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8. 用户评论 -->
+      <section class="section" id="section-comments">
+        <div class="section-header">
+          <h2>观众在讨论什么</h2>
+        </div>
+        <div class="comment-list">
+          <div class="comment-card">
+            <div class="comment-head">
+              <span class="avatar">夜</span>
+              <span class="nickname">夜行乘客</span>
+            </div>
+            <div class="comment-body">第三集导演剪辑版多出来的那段独白，我在初版里就觉得少了点什么，原来真的剪掉了。中村导演的直播回放看了两遍。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head">
+              <span class="avatar">潮</span>
+              <span class="nickname">潮汐观测员</span>
+            </div>
+            <div class="comment-body">《潮汐之间》预告里那个海边礁石的镜头，和《山雾》的山景是同一个摄影指导拍的，难怪色调这么像。查了一下叫小林，两部片子的画面质感确实统一。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head">
+              <span class="avatar">站</span>
+              <span class="nickname">站台常客</span>
+            </div>
+            <div class="comment-body">《站台》第 5 集的长镜头看了四遍，低成本能拍出这种调度，导演有点东西。不过第 7 集的台词写得一般，有点赶。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head">
+              <span class="avatar">暗</span>
+              <span class="nickname">暗房观察</span>
+            </div>
+            <div class="comment-body">暗房计划 2027 片单里我最期待《海风停靠》，说是沿海小镇的故事，希望别拍成风景片，剧情得撑住。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head">
+              <span class="avatar">铃</span>
+              <span class="nickname">铃木推</span>
+            </div>
+            <div class="comment-body">铃木遥从《站台》配角到《潮汐之间》主演，18 个月。中间那部《泳池边》短片是关键，拿奖之后资源明显上来了。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head">
+              <span class="avatar">镜</span>
+              <span class="nickname">镜头外的人</span>
+            </div>
+            <div class="comment-body">选角导演佐藤那集信息量真大。他说现在看即兴表演视频比看照片多，提交材料里加 30 秒自我介绍，这个变化挺实际的。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head">
+              <span class="avatar">山</span>
+              <span class="nickname">山雾迷</span>
+            </div>
+            <div class="comment-body">《山雾》8.7 分有点虚高吧。摄影确实好，但后半段节奏拖了，第 80 分钟到 95 分钟那段可以再剪剪。7.8 到 8.2 比较合理。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head">
+              <span class="avatar">短</span>
+              <span class="nickname">短剧收割机</span>
+            </div>
+            <div class="comment-body">今年短剧数量多了，但同质化也严重。十部里有六部是「夜晚+车内+电话」的套路，《夜行列车》赢在演员和执行，剧本本身也就中等。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head">
+              <span class="avatar">票</span>
+              <span class="nickname">投票机器</span>
+            </div>
+            <div class="comment-body">片单投票每天三票，我全投给《站台》了。虽然知道它拿前三的概率不大，但重播数据涨了 40%，说明不止我一个人在投。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head">
+              <span class="avatar">海</span>
+              <span class="nickname">海风社老观众</span>
+            </div>
+            <div class="comment-body">海风社今年的片子评分跨度太大了，6.2 到 8.4 都有，选片跟开盲盒似的。建议先看评论数再决定。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head">
+              <span class="avatar">录</span>
+              <span class="nickname">录片党</span>
+            </div>
+            <div class="comment-body">《镜头之外》第二季比第一季好看，幕后人员讲的东西比演员访谈具体。剪辑师高桥那集还没看，据说讲了粗剪版本的变化。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head">
+              <span class="avatar">路</span>
+              <span class="nickname">路过看看</span>
+            </div>
+            <div class="comment-body">不太看GV题材，但《山雾》的摄影确实好，当风景片看也不亏。剧情没太看进去。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head">
+              <span class="avatar">十</span>
+              <span class="nickname">十五分钟</span>
+            </div>
+            <div class="comment-body">短片合集《十五分钟》里《泳池边》最好，另外两部一般。新人导演拍长片之前先拍短片练手，这个方向是对的。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head">
+              <span class="avatar">等</span>
+              <span class="nickname">等第四集</span>
+            </div>
+            <div class="comment-body">《夜行列车》第四集什么时候上？导演说 11 月中旬，现在都 8 号了还没动静。别又延期。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head">
+              <span class="avatar">数</span>
+              <span class="nickname">数据控</span>
+            </div>
+            <div class="comment-body">11 月片单投票 8600 人参与，按平台日活算参与率不到 5%。这个投票的参考价值有限，前几名基本靠核心粉丝刷。</div>
+          </div>
+          <div class="comment-card">
+            <div class="comment-head">
+              <span class="avatar">大</span>
+              <span class="nickname">大野健的舞台粉</span>
+            </div>
+            <div class="comment-body">大野健从舞台剧转GV长片，演技肯定没问题，就看镜头前能不能放开。舞台和镜头表演差别太大了。</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. 相关资讯 -->
+      <section class="section" id="section-news">
+        <div class="section-header">
+          <h2>近期行业与作品动态</h2>
+        </div>
+        <div class="news-list">
+          <article class="news-item">
+            <img class="news-thumb" src="https://picsum.photos/seed/gv-news1/600/400" width="120" height="90" loading="lazy" alt="《夜行列车》第三集剪辑室工作照">
+            <div class="news-body">
+              <h3 class="news-title">《夜行列车》第三集导演剪辑版上线 48 小时播放量破 12 万</h3>
+              <span class="news-date">2026年11月7日</span>
+              <p class="news-summary">11 月 7 日上线后，48 小时内播放量达到 12.3 万，超过初版第三集首周播放量的 1.6 倍。平台在 11 月 8 日中午将其放入首页「本周必看」推荐位，预计推荐持续到 11 月 10 日。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-thumb" src="https://picsum.photos/seed/gv-news2/600/400" width="120" height="90" loading="lazy" alt="暗房计划发布会现场，团队负责人展示片单">
+            <div class="news-body">
+              <h3 class="news-title">「暗房计划」2027 片单：六部新作预算总额 1.4 亿日元</h3>
+              <span class="news-date">2026年11月1日</span>
+              <p class="news-summary">11 月 1 日发布会公布六部作品预算分配：三部长片合计 1.02 亿日元，三部短剧合计 3800 万日元。团队负责人表示《海风停靠》已完成粗剪，11 月下旬进入调色阶段。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-thumb" src="https://picsum.photos/seed/gv-news3/600/400" width="120" height="90" loading="lazy" alt="铃木遥在《潮汐之间》片场接受采访">
+            <div class="news-body">
+              <h3 class="news-title">铃木遥《潮汐之间》杀青 制片方确认 118 分钟成片</h3>
+              <span class="news-date">2026年10月28日</span>
+              <p class="news-summary">10 月 28 日片方宣布《潮汐之间》完成 45 天拍摄，进入后期。制片人在新闻稿中确认成片时长 118 分钟，比初剪版本多出 6 分钟，新增内容集中在主角少年时期的回忆段落。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-thumb" src="https://picsum.photos/seed/gv-news4/600/400" width="120" height="90" loading="lazy" alt="《镜头之外》第二季录制现场，选角导演佐藤在镜头前">
+            <div class="news-body">
+              <h3 class="news-title">《镜头之外》第二季第 4 集：选角材料两年变化数据公开</h3>
+              <span class="news-date">2026年11月3日</span>
+              <p class="news-summary">11 月 3 日上线的第 4 集里，选角导演佐藤展示了一组数据：2024 年提交材料中即兴表演视频占 22%，2026 年上升到 67%；平均每份材料的审核时间从 4 分 30 秒缩短到 2 分 10 秒。</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-thumb" src="https://picsum.photos/seed/gv-news5/600/400" width="120" height="90" loading="lazy" alt="《站台》第一季重播期间短视频平台二次剪辑截图">
+            <div class="news-body">
+              <h3 class="news-title">《站台》第 5 集长镜头片段在短视频平台播放超 80 万</h3>
+              <span class="news-date">2026年10月26日</span>
+              <p class="news-summary">10 月 26 日统计，第 5 集 3 分 42 秒的长镜头被 47 个账号二次剪辑发布，总播放量超过 80 万。导演在 10 月 27 日的采访中回应：「那个镜头拍了 11 条，最后用的是第 9 条。」</p>
+            </div>
+          </article>
+          <article class="news-item">
+            <img class="news-thumb" src="https://picsum.photos/seed/gv-news6/600/400" width="120" height="90" loading="lazy" alt="《山雾》山区拍摄工作照，剧组在雾中架设摄影机">
+            <div class="news-body">
+              <h3 class="news-title">《山雾》评分稳定 8.7 第二周获首页推荐</h3>
+              <span class="news-date">2026年10月22日</span>
+              <p class="news-summary">10 月 22 日平台数据显示，《山雾》上线首周播放量当周排第四，但评分稳定在 8.7 分、评论数 1240 条，第二周被推上首页推荐位。导演佐佐木透露，全片 70% 镜头在海拔 1500 米以上拍摄，剧组在山区驻留 22 天。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 10. 相关推荐 -->
+      <section class="section" id="section-related">
+        <div class="section-header">
+          <h2>按具体方向查找</h2>
+        </div>
+        <div class="related-tags">
+          <a href="/#section-featured">封闭空间叙事</a>
+          <a href="/#section-featured">低成本短剧调度</a>
+          <a href="/#section-featured">户外实景拍摄</a>
+          <a href="/#section-featured">选角流程与试镜</a>
+          <a href="/#section-featured">导演剪辑版差异</a>
+          <a href="/#section-featured">演员职业路径</a>
+          <a href="/#section-featured">短片合集新人导演</a>
+          <a href="/#section-featured">平台推荐机制变化</a>
+        </div>
+      </section>
+
+      <!-- 11. 热门榜单 -->
+      <section class="section" id="section-ranking">
+        <div class="section-header">
+          <h2>11 月第一周平台热度榜</h2>
+        </div>
+        <div class="ranking-list">
+          <div class="ranking-item">
+            <span class="rank-num">1</span>
+            <span class="rank-title">《夜行列车》第三集导演剪辑版</span>
+            <span class="rank-score">热度 9.2k</span>
+          </div>
+          <div class="ranking-item">
+            <span class="rank-num">2</span>
+            <span class="rank-title">《山雾》</span>
+            <span class="rank-score">热度 8.3k</span>
+          </div>
+          <div class="ranking-item">
+            <span class="rank-num">3</span>
+            <span class="rank-title">《潮汐之间》首支预告</span>
+            <span class="rank-score">热度 7.8k</span>
+          </div>
+          <div class="ranking-item">
+            <span class="rank-num">4</span>
+            <span class="rank-title">铃木遥专访：从短剧到长片的 18 个月</span>
+            <span class="rank-score">热度 6.4k</span>
+          </div>
+          <div class="ranking-item">
+            <span class="rank-num">5</span>
+            <span class="rank-title">《镜头之外》第二季第 4 集选角导演访谈</span>
+            <span class="rank-score">热度 5.6k</span>
+          </div>
+          <div class="ranking-item">
+            <span class="rank-num">6</span>
+            <span class="rank-title">《站台》第一季重播</span>
+            <span class="rank-score">热度 5.1k</span>
+          </div>
+          <div class="ranking-item">
+            <span class="rank-num">7</span>
+            <span class="rank-title">「暗房计划」2027 片单</span>
+            <span class="rank-score">热度 4.9k</span>
+          </div>
+          <div class="ranking-item">
+            <span class="rank-num">8</span>
+            <span class="rank-title">短片合集《十五分钟》</span>
+            <span class="rank-score">热度 4.2k</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12. 投稿互动 -->
+      <section class="section" id="section-contribute">
+        <div class="section-header">
+          <h2>参与内容共建</h2>
+        </div>
+        <div class="contribute-box">
+          <div class="contribute-text">
+            <h3>影评投稿与片单提名开放中</h3>
+            <p>写 800 字以上的作品评论或专题分析，通过审核后发布在「影评投稿」栏目。11 月片单提名同步开放，提名你希望进入 12 月推荐位的作品，需附上 100 字理由。</p>
+          </div>
+          <a href="/#section-contribute" class="btn-primary">查看投稿要求</a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 右侧辅助栏 -->
+    <aside class="aux-sidebar" aria-label="辅助信息">
+      <div class="aux-card">
+        <h3>本周热榜</h3>
+        <ul class="hot-list">
+          <li><span class="num top">1</span><span class="txt"><strong>《夜行列车》第三集</strong> 导演剪辑版上线</span></li>
+          <li><span class="num top">2</span><span class="txt"><strong>《山雾》</strong> 评分稳定 8.7 分</span></li>
+          <li><span class="num top">3</span><span class="txt"><strong>《潮汐之间》</strong> 首支预告发布</span></li>
+          <li><span class="num">4</span><span class="txt"><strong>铃木遥</strong> 长片主演官宣</span></li>
+          <li><span class="num">5</span><span class="txt"><strong>选角导演佐藤</strong> 访谈数据公开</span></li>
+          <li><span class="num">6</span><span class="txt"><strong>暗房计划</strong> 2027 片单公布</span></li>
+          <li><span class="num">7</span><span class="txt"><strong>《站台》</strong> 重播播放量涨 40%</span></li>
+          <li><span class="num">8</span><span class="txt"><strong>11 月片单投票</strong> 8600 人参与</span></li>
+        </ul>
+      </div>
+      <div class="aux-card">
+        <h3>最新条目</h3>
+        <ul class="update-mini">
+          <li><span class="mini-date">11月7日</span> 《夜行列车》第三集导演剪辑版</li>
+          <li><span class="mini-date">11月6日</span> 「镜头之外」第二季第 3—6 集</li>
+          <li><span class="mini-date">11月5日</span> 11 月片单投票开放</li>
+          <li><span class="mini-date">11月3日</span> 选角导演佐藤访谈上线</li>
+          <li><span class="mini-date">11月2日</span> 《潮汐之间》首支预告</li>
+          <li><span class="mini-date">11月1日</span> 暗房计划 2027 片单</li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- 回到顶部 -->
+<button class="back-to-top" id="backToTop" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+</button>
+
+<!-- 页脚 -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="36" height="36" rx="9" fill="#e8b04b"/>
+            <rect x="8" y="9" width="20" height="4" rx="1.5" fill="#1f2a3a"/>
+            <rect x="8" y="16" width="20" height="4" rx="1.5" fill="#1f2a3a"/>
+            <rect x="8" y="23" width="13" height="4" rx="1.5" fill="#1f2a3a"/>
+          </svg>
+          <span>GV网站一同入口</span>
+        </div>
+        <p class="footer-desc">
+          内容覆盖 2026 年 1 月至 11 月 8 日上线的 GV 题材作品与专题，条目类型包括剧情长片、系列短剧、纪录片、演员访谈和幕后花絮。每周一、周四更新最新条目，片单投票每月 5 日开启、20 日截止。
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>内容分类</h4>
+        <a href="/#section-featured">剧情长片</a>
+        <a href="/#section-featured">系列短剧</a>
+        <a href="/#section-featured">纪录片</a>
+        <a href="/#section-featured">演员访谈</a>
+        <a href="/#section-featured">短片合集</a>
+      </div>
+      <div class="footer-col">
+        <h4>专题与互动</h4>
+        <a href="/#section-deepdive">深度解析</a>
+        <a href="/#section-guide">观看指南</a>
+        <a href="/#section-faq">常见问题</a>
+        <a href="/#section-ranking">热门榜单</a>
+        <a href="/#section-contribute">投稿互动</a>
+      </div>
+      <div class="footer-col">
+        <h4>近期更新</h4>
+        <a href="/#section-updates">11 月第一周更新记录</a>
+        <a href="/#section-news">相关资讯</a>
+        <a href="/#section-comments">观众评论</a>
+        <a href="/#section-related">按方向查找</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 GV网站一同入口 · 内容聚合示例</span>
+      <div class="footer-meta">
+        <span>页面更新：2026年11月8日</span>
+        <span>数据为示例条目</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- 结构化数据：WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "GV网站一同入口",
+  "description": "GV题材影视作品、演员访谈与观看指南聚合",
+  "inLanguage": "zh-CN"
+}
+</script>
+
+<!-- 结构化数据：FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "《夜行列车》第三集导演剪辑版和普通版差在哪？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "多出约 8 分钟片段，集中在主角在车厢连接处的独白和一场原本被剪掉的站台告别戏。导演中村在 11 月 6 日的直播里说明，这段是初剪时因单集时长限制拿掉的。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "铃木遥在《潮汐之间》之前演过哪些作品？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2025 年 3 月在短剧《站台》第一季里演配角「阿透」，2025 年 9 月出演《夜行列车》第一季第 2 集，2026 年 1 月在短片《泳池边》里担任主演。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "「暗房计划」2027 年片单里哪部最早上线？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "《海风停靠》已进入后期制作，预计 2027 年 4 月上线，是六部新作里进度最快的一部。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "系列短剧和剧情长片的评分可以直接比较吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "平台用同一套 10 分制，但短剧评论数在 200—400 条，长片在 800—1500 条。评分 8.0 的短剧如果只有 150 条评论，参考价值低于评分 7.5、评论数 900 条的长片。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "11 月片单投票的规则是什么？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "12 部候选作品来自 2026 年 1—10 月上线内容，每位用户每天可投 3 票，同一部作品每天限投 1 票。投票从 11 月 5 日持续到 11 月 20 日，得票最高的 3 部在 12 月推荐位展示。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "《镜头之外》第二季和第一季的访谈对象有什么区别？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "第一季以演员为主，6 集里 5 集是演员访谈；第二季转向幕后，第 3—6 集分别请了选角导演佐藤、制片人山田、摄影指导小林和剪辑师高桥。"
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+  (function() {
+    // 搜索功能：筛选精选卡片与更新列表
+    var searchInput = document.getElementById('searchInput');
+    var featuredGrid = document.getElementById('featuredGrid');
+    var noResult = document.getElementById('searchNoResult');
+    var updateList = document.querySelector('.update-list');
+    var newsList = document.querySelector('.news-list');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        var q = this.value.trim().toLowerCase();
+        var allCards = featuredGrid ? featuredGrid.querySelectorAll('.content-card') : [];
+        var allUpdates = updateList ? updateList.querySelectorAll('.update-item') : [];
+        var allNews = newsList ? newsList.querySelectorAll('.news-item') : [];
+        var anyVisible = false;
+
+        // 卡片筛选
+        allCards.forEach(function(card) {
+          var text = card.textContent.toLowerCase();
+          var match = !q || text.indexOf(q) !== -1;
+          card.style.display = match ? '' : 'none';
+          if (match) anyVisible = true;
+        });
+
+        // 更新列表筛选
+        allUpdates.forEach(function(item) {
+          var text = item.textContent.toLowerCase();
+          var match = !q || text.indexOf(q) !== -1;
+          item.style.display = match ? '' : 'none';
+          if (match) anyVisible = true;
+        });
+
+        // 资讯筛选
+        allNews.forEach(function(item) {
+          var text = item.textContent.toLowerCase();
+          var match = !q || text.indexOf(q) !== -1;
+          item.style.display = match ? '' : 'none';
+          if (match) anyVisible = true;
+        });
+
+        if (noResult) {
+          noResult.classList.toggle('show', q && !anyVisible);
+        }
+      });
+    }
+
+    // 移动端菜单
+    var hamburger = document.getElementById('hamburgerBtn');
+    var drawer = document.getElementById('mobileDrawer');
+    var overlay = document.getElementById('mobileOverlay');
+    var closeBtn = document.getElementById('mobileCloseBtn');
+
+    function openMenu() {
+      drawer.classList.add('open');
+      overlay.classList.add('show');
+      hamburger.classList.add('active');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      drawer.classList.remove('open');
+      overlay.classList.remove('show');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    if (hamburger) {
+      hamburger.addEventListener('click', function() {
+        if (drawer.classList.contains('open')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+    }
+
+    if (overlay) {
+      overlay.addEventListener('click', closeMenu);
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeMenu);
+    }
+
+    // 点击抽屉内链接后自动关闭
+    if (drawer) {
+      drawer.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', closeMenu);
+      });
+    }
+
+    // 键盘 Esc 关闭
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        if (drawer && drawer.classList.contains('open')) {
+          closeMenu();
+        }
+      }
+    });
+
+    // 回到顶部
+    var backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > window.innerHeight) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      });
+      backToTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // 频道导航高亮当前板块
+    var sections = document.querySelectorAll('main .section[id]');
+    var navLinks = document.querySelectorAll('#channelNav a');
+
+    if (sections.length && navLinks.length) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var id = entry.target.getAttribute('id');
+            navLinks.forEach(function(link) {
+              link.classList.toggle('current', link.getAttribute('href') === '/#' + id);
+            });
+          }
+        });
+      }, {
+        rootMargin: '-120px 0px -60% 0px',
+        threshold: 0.1
+      });
+
+      sections.forEach(function(section) {
+        observer.observe(section);
+      });
+    }
+  })();
+</script>
+
+</body>
+  </html>

@@ -1,0 +1,1972 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>黑森林国产福利导航 - 多频道聚合与精选内容</title>
+  <meta name="description" content="黑森林国产福利导航汇聚国产福利视频、影视、动漫与游戏资源，提供分类索引、最新更新列表、深度评测与用户评论。适合寻找国产内容聚合与福利资源的用户浏览参考。">
+  <meta name="keywords" content="黑森林国产福利导航">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232d4b3e'/%3E%3Cpath d='M9 23L16 7l7 16H9z' fill='%23e8d5b5' opacity='.9'/%3E%3Ccircle cx='16' cy='20' r='2.5' fill='%232d4b3e'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --primary: #2d4b3e;
+      --primary-light: #4a6b5a;
+      --primary-dark: #1e3329;
+      --accent: #c9a86c;
+      --accent-soft: #f0e6d3;
+      --bg: #f7f5f0;
+      --surface: #ffffff;
+      --text-primary: #1e2a24;
+      --text-secondary: #5a6b62;
+      --text-tertiary: #8a9a90;
+      --border: #e0ddd5;
+      --radius-card: 12px;
+      --radius-btn: 8px;
+      --radius-tag: 6px;
+      --shadow-default: 0 1px 3px rgba(30, 42, 36, 0.06);
+      --shadow-hover: 0 6px 20px rgba(30, 42, 36, 0.1);
+      --font-body: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+      --font-heading: "PingFang SC", "Microsoft YaHei", "Noto Serif SC", Georgia, serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 120px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text-primary);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--primary); }
+    ul { list-style: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 吸顶公告条 */
+    .announce-bar {
+      background: var(--primary-dark);
+      color: #e8d5b5;
+      font-size: 13px;
+      padding: 6px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .announce-inner {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .announce-brand { font-weight: 600; color: #fff; letter-spacing: 0.5px; }
+    .announce-item { display: inline-flex; align-items: center; gap: 6px; opacity: 0.9; }
+    .announce-date { color: var(--accent); font-weight: 500; }
+    .announce-sep { opacity: 0.3; }
+
+    /* 页头 */
+    .site-header {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 30px;
+      z-index: 99;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      max-width: 1360px;
+      margin: 0 auto;
+      gap: 24px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .brand svg { width: 34px; height: 34px; }
+    .brand-text { font-family: var(--font-heading); font-size: 20px; font-weight: 700; color: var(--primary); letter-spacing: 0.5px; }
+    .main-nav { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+    .main-nav a {
+      font-size: 14px;
+      padding: 6px 12px;
+      border-radius: var(--radius-btn);
+      color: var(--text-secondary);
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .main-nav a:hover, .main-nav a.active { background: var(--accent-soft); color: var(--primary-dark); }
+    .header-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 4px 4px 14px;
+      transition: border-color 0.2s;
+    }
+    .search-box:focus-within { border-color: var(--accent); }
+    .search-box input {
+      border: none;
+      background: transparent;
+      font-size: 13px;
+      width: 130px;
+      color: var(--text-primary);
+      outline: none;
+      font-family: inherit;
+    }
+    .search-box input::placeholder { color: var(--text-tertiary); }
+    .search-box button {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 16px;
+      padding: 4px 12px;
+      font-size: 12px;
+      transition: background 0.2s;
+    }
+    .search-box button:hover { background: var(--primary-light); }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 6px;
+      width: 36px;
+      height: 36px;
+      justify-content: center;
+      align-items: center;
+      border-radius: var(--radius-btn);
+    }
+    .hamburger:hover { background: var(--bg); }
+    .hamburger span { display: block; width: 20px; height: 2px; background: var(--text-primary); border-radius: 1px; transition: 0.2s; }
+
+    /* 首屏 */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 55%, #3d5a4b 100%);
+      color: #fff;
+      padding: 56px 0 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      right: -80px;
+      top: -100px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,108,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      left: 6%;
+      bottom: -60px;
+      width: 180px;
+      height: 180px;
+      border: 2px solid rgba(201,168,108,0.15);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 42px;
+      line-height: 1.25;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+    .hero-desc {
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.8);
+      max-width: 560px;
+      margin-bottom: 24px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--primary-dark);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 22px;
+      border-radius: var(--radius-btn);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #d9bc8a; color: var(--primary-dark); transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      font-size: 14px;
+      padding: 10px 22px;
+      border-radius: var(--radius-btn);
+      transition: background 0.2s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.18); color: #fff; }
+    .hero-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+    }
+    .hero-stat-card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-card);
+      padding: 14px 20px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .hero-stat-card .num { font-size: 24px; font-weight: 700; color: var(--accent); font-family: var(--font-heading); }
+    .hero-stat-card .label { font-size: 13px; color: rgba(255,255,255,0.7); }
+
+    /* 主内容三栏布局 */
+    .page-layout {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 36px 20px 60px;
+      display: grid;
+      grid-template-columns: 180px 1fr 240px;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* 左侧频道索引 */
+    .channel-sidebar {
+      position: sticky;
+      top: 100px;
+      align-self: start;
+    }
+    .channel-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      padding-left: 10px;
+    }
+    .channel-list { display: flex; flex-direction: column; gap: 2px; }
+    .channel-list a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: var(--radius-btn);
+      font-size: 14px;
+      color: var(--text-secondary);
+      transition: background 0.15s, color 0.15s;
+      border-left: 3px solid transparent;
+    }
+    .channel-list a:hover, .channel-list a.active {
+      background: var(--accent-soft);
+      color: var(--primary-dark);
+      border-left-color: var(--accent);
+    }
+    .channel-list a .count {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-left: 4px;
+    }
+
+    /* 中间主内容 */
+    .main-content { min-width: 0; }
+    .section-block { margin-bottom: 48px; }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .section-header h2 {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      color: var(--primary-dark);
+      letter-spacing: 0.5px;
+    }
+    .section-header .more-link {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      transition: color 0.2s;
+    }
+    .section-header .more-link:hover { color: var(--primary); }
+
+    /* 领域概览 */
+    .overview-text {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 24px 28px;
+      box-shadow: var(--shadow-default);
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      line-height: 1.85;
+    }
+    .overview-text strong { color: var(--primary-dark); font-weight: 600; }
+    .overview-text p + p { margin-top: 14px; }
+
+    /* 精选卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-default);
+      transition: box-shadow 0.25s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+    .card-thumb {
+      position: relative;
+      aspect-ratio: 4/3;
+      background: var(--border);
+      overflow: hidden;
+    }
+    .card-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.35s; }
+    .card:hover .card-thumb img { transform: scale(1.04); }
+    .card-type {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(30,42,36,0.75);
+      color: #fff;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      backdrop-filter: blur(4px);
+    }
+    .card-body { padding: 14px 16px 16px; flex: 1; display: flex; flex-direction: column; }
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+    .tag {
+      font-size: 11px;
+      padding: 1px 7px;
+      border-radius: var(--radius-tag);
+      background: var(--accent-soft);
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    .tag-neutral { background: var(--bg); color: var(--text-secondary); }
+    .card-desc {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+    .card-meta .hot { color: var(--accent); font-weight: 600; }
+
+    /* 最新更新列表 */
+    .update-list {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-default);
+      overflow: hidden;
+    }
+    .update-item {
+      display: flex;
+      gap: 14px;
+      padding: 14px 20px;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    .update-item:last-child { border-bottom: none; }
+    .update-item:hover { background: var(--bg); }
+    .update-index {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent);
+      width: 24px;
+      flex-shrink: 0;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .update-content { flex: 1; min-width: 0; }
+    .update-name { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+    .update-name .badge {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-size: 10px;
+      padding: 0 5px;
+      border-radius: 3px;
+      margin-left: 6px;
+      vertical-align: middle;
+      font-weight: 400;
+    }
+    .update-summary { font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; }
+    .update-date { font-size: 12px; color: var(--text-tertiary); flex-shrink: 0; white-space: nowrap; padding-top: 2px; }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .category-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 16px 14px;
+      text-align: center;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      display: block;
+    }
+    .category-item:hover {
+      border-color: var(--accent);
+      background: #fdfaf4;
+      box-shadow: var(--shadow-default);
+    }
+    .category-icon { font-size: 22px; margin-bottom: 6px; display: block; }
+    .category-name { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+    .category-count { font-size: 11.5px; color: var(--text-tertiary); }
+
+    /* 深度解析 */
+    .deep-dive {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 28px 32px;
+      box-shadow: var(--shadow-default);
+    }
+    .deep-dive h3 {
+      font-family: var(--font-heading);
+      font-size: 17px;
+      color: var(--primary-dark);
+      margin: 22px 0 10px;
+      padding-left: 12px;
+      border-left: 3px solid var(--accent);
+    }
+    .deep-dive h3:first-of-type { margin-top: 0; }
+    .deep-dive p {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      margin-bottom: 10px;
+    }
+    .deep-dive ul { margin: 8px 0 12px 20px; list-style: disc; color: var(--text-secondary); font-size: 14px; line-height: 1.8; }
+    .deep-dive li { margin-bottom: 4px; }
+    .deep-dive .highlight {
+      background: #fdf6e9;
+      border-left: 3px solid var(--accent);
+      padding: 12px 16px;
+      border-radius: 0 var(--radius-btn) var(--radius-btn) 0;
+      margin: 12px 0;
+      font-size: 14px;
+      color: var(--text-primary);
+    }
+
+    /* 体验指南 */
+    .guide-steps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .guide-step {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-default);
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--accent);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-content h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: var(--text-primary); }
+    .step-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-default);
+      overflow: hidden;
+    }
+    .faq-item summary {
+      padding: 14px 20px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-primary);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      transition: background 0.15s;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary:hover { background: var(--bg); }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 18px;
+      color: var(--accent);
+      font-weight: 400;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-answer {
+      padding: 0 20px 16px;
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* 用户评论 */
+    .comment-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .comment-item {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-default);
+    }
+    .comment-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .comment-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .comment-nick { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+    .comment-time { font-size: 11px; color: var(--text-tertiary); margin-left: auto; }
+    .comment-text { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+
+    /* 相关资讯 */
+    .news-list { display: flex; flex-direction: column; gap: 12px; }
+    .news-item {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 16px 20px;
+      box-shadow: var(--shadow-default);
+      transition: box-shadow 0.2s;
+    }
+    .news-item:hover { box-shadow: var(--shadow-hover); }
+    .news-title { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+    .news-date { font-size: 12px; color: var(--accent); margin-bottom: 6px; font-weight: 500; }
+    .news-summary { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+
+    /* 相关推荐标签 */
+    .rec-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .rec-tags a {
+      font-size: 13px;
+      padding: 6px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--text-secondary);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .rec-tags a:hover { border-color: var(--accent); color: var(--primary-dark); background: var(--accent-soft); }
+
+    /* 时间线 */
+    .timeline { position: relative; padding-left: 24px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item { position: relative; margin-bottom: 18px; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      left: -21px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--surface);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+    .timeline-date { font-size: 12px; color: var(--accent); font-weight: 600; margin-bottom: 2px; }
+    .timeline-text { font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; }
+    .timeline-text strong { color: var(--text-primary); }
+
+    /* 右侧辅助栏 */
+    .aux-sidebar { position: sticky; top: 100px; align-self: start; display: flex; flex-direction: column; gap: 20px; }
+    .aux-card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-default);
+    }
+    .aux-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .aux-title .icon { color: var(--accent); font-size: 16px; }
+    .hot-list { display: flex; flex-direction: column; gap: 10px; }
+    .hot-item { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; }
+    .hot-rank {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      background: var(--bg);
+      color: var(--text-tertiary);
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .hot-item:nth-child(-n+3) .hot-rank { background: var(--primary); color: var(--accent); }
+    .hot-name { color: var(--text-primary); font-weight: 500; line-height: 1.4; }
+    .hot-name .hot-tag { font-size: 11px; color: var(--text-tertiary); font-weight: 400; margin-left: 4px; }
+
+    .update-stream { display: flex; flex-direction: column; gap: 8px; }
+    .stream-item { font-size: 12.5px; color: var(--text-secondary); display: flex; gap: 8px; align-items: baseline; }
+    .stream-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 7px; }
+    .stream-time { color: var(--text-tertiary); font-size: 11px; white-space: nowrap; flex-shrink: 0; }
+
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-cloud a {
+      font-size: 12px;
+      padding: 3px 10px;
+      background: var(--bg);
+      border-radius: 12px;
+      color: var(--text-secondary);
+      transition: background 0.2s, color 0.2s;
+    }
+    .tag-cloud a:hover { background: var(--accent-soft); color: var(--primary-dark); }
+
+    /* 投稿互动栏目 */
+    .interact-box {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      border-radius: var(--radius-card);
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .interact-box h3 { font-family: var(--font-heading); font-size: 18px; margin-bottom: 4px; }
+    .interact-box p { font-size: 13px; color: rgba(255,255,255,0.75); }
+    .interact-box .btn-primary { background: var(--accent); color: var(--primary-dark); flex-shrink: 0; }
+
+    /* 页尾 */
+    .site-footer {
+      background: var(--primary-dark);
+      color: rgba(255,255,255,0.65);
+      padding: 44px 0 28px;
+      font-size: 13px;
+    }
+    .footer-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 28px;
+    }
+    .footer-brand { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .footer-brand svg { width: 28px; height: 28px; }
+    .footer-brand-text { font-family: var(--font-heading); font-size: 17px; font-weight: 700; color: #fff; }
+    .footer-desc { line-height: 1.8; font-size: 12.5px; color: rgba(255,255,255,0.55); max-width: 320px; }
+    .footer-col h4 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 6px; }
+    .footer-col a { font-size: 12.5px; color: rgba(255,255,255,0.55); transition: color 0.2s; }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 16px 20px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* 回到顶部 */
+    .back-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-hover);
+      z-index: 90;
+      transition: background 0.2s, transform 0.2s;
+      font-size: 18px;
+    }
+    .back-top:hover { background: var(--primary-light); transform: translateY(-2px); }
+    .back-top.show { display: flex; }
+
+    /* 移动端遮罩 */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 98;
+    }
+    .overlay.show { display: block; }
+
+    /* 响应式 */
+    @media (max-width: 1100px) {
+      .page-layout { grid-template-columns: 160px 1fr 220px; gap: 24px; }
+      .hero h1 { font-size: 34px; }
+    }
+    @media (max-width: 1024px) {
+      .page-layout { grid-template-columns: 1fr 240px; }
+      .channel-sidebar { display: none; }
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+      .category-grid { grid-template-columns: repeat(3, 1fr); }
+      .comment-list { grid-template-columns: 1fr; }
+      .guide-steps { grid-template-columns: 1fr; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { flex-direction: row; flex-wrap: wrap; }
+      .hero-stat-card { width: calc(50% - 5px); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .main-nav { display: none; }
+      .hamburger { display: flex; }
+      .main-nav.open {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 260px;
+        height: 100vh;
+        background: var(--surface);
+        flex-direction: column;
+        padding: 80px 20px 20px;
+        box-shadow: var(--shadow-hover);
+        z-index: 100;
+        gap: 4px;
+        overflow-y: auto;
+      }
+      .main-nav.open a { padding: 10px 14px; font-size: 15px; }
+    }
+    @media (max-width: 740px) {
+      .page-layout { grid-template-columns: 1fr; }
+      .aux-sidebar { position: static; }
+      .card-grid { grid-template-columns: 1fr; }
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero h1 { font-size: 28px; }
+      .hero { padding: 36px 0 32px; }
+      .header-actions .search-box { display: none; }
+      .footer-inner { grid-template-columns: 1fr; gap: 20px; }
+      .announce-inner { justify-content: flex-start; font-size: 12px; gap: 10px; }
+      .announce-item:nth-child(n+3) { display: none; }
+      .deep-dive { padding: 20px; }
+      .back-top { right: 16px; bottom: 16px; width: 40px; height: 40px; }
+      .update-item { flex-wrap: wrap; }
+      .update-date { margin-left: 38px; }
+      .interact-box { flex-direction: column; align-items: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="announce-bar">
+  <div class="announce-inner">
+    <span class="announce-brand">黑森林国产福利导航</span>
+    <span class="announce-sep">|</span>
+    <span class="announce-item"><span class="announce-date">11月8日</span> 新增「山海计划」纪录片全集</span>
+    <span class="announce-item"><span class="announce-date">11月7日</span> 国漫《雾山五行》第二季上线</span>
+    <span class="announce-item">今日更新 <strong style="color:var(--accent)">47</strong> 部作品</span>
+  </div>
+</div>
+
+<!-- 页头 -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/#home" class="brand" aria-label="黑森林国产福利导航首页">
+      <svg viewBox="0 0 34 34" fill="none" aria-hidden="true">
+        <rect width="34" height="34" rx="9" fill="#2d4b3e"/>
+        <path d="M10 25L17 8l7 17H10z" fill="#e8d5b5" opacity="0.9"/>
+        <circle cx="17" cy="21" r="2.8" fill="#2d4b3e"/>
+      </svg>
+      <span class="brand-text">黑森林国产福利导航</span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="主导航">
+      <a href="/#overview">领域概览</a>
+      <a href="/#featured">精选推荐</a>
+      <a href="/#updates">最新更新</a>
+      <a href="/#categories">分类入口</a>
+      <a href="/#deep-dive">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#comments">用户评论</a>
+      <a href="/#news">相关资讯</a>
+      <a href="/#submit">投稿互动</a>
+    </nav>
+    <div class="header-actions">
+      <div class="search-box">
+        <input type="search" id="searchInput" placeholder="搜索条目…" aria-label="搜索站内条目">
+        <button type="button" id="searchBtn" aria-label="搜索">搜索</button>
+      </div>
+      <button class="hamburger" id="hamburgerBtn" aria-label="打开导航菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="overlay" id="overlay"></div>
+
+<!-- 首屏 -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <h1>黑森林国产福利导航</h1>
+      <p class="hero-desc">
+        聚合国产剧集、国创动画、独立短片与游戏实况的资源索引。收录 2026 年 10 月至 11 月更新的 620 余部条目，按类型、平台与评分分层呈现。
+      </p>
+      <div class="hero-actions">
+        <a href="/#featured" class="btn-primary">浏览精选条目</a>
+        <a href="/#updates" class="btn-ghost">查看最新更新</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-stat-card">
+        <span class="label">收录条目</span>
+        <span class="num">624</span>
+      </div>
+      <div class="hero-stat-card">
+        <span class="label">今日更新</span>
+        <span class="num">47</span>
+      </div>
+      <div class="hero-stat-card">
+        <span class="label">活跃分类</span>
+        <span class="num">12</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 主内容三栏布局 -->
+<div class="page-layout">
+
+  <!-- 左侧频道索引 -->
+  <aside class="channel-sidebar" aria-label="频道索引">
+    <div class="channel-title">频道索引</div>
+    <div class="channel-list" id="channelNav">
+      <a href="/#overview" class="active">领域概览</a>
+      <a href="/#featured">精选推荐 <span class="count">8</span></a>
+      <a href="/#updates">最新更新 <span class="count">10</span></a>
+      <a href="/#categories">分类入口 <span class="count">8</span></a>
+      <a href="/#deep-dive">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问题 <span class="count">6</span></a>
+      <a href="/#comments">用户评论 <span class="count">16</span></a>
+      <a href="/#news">相关资讯 <span class="count">6</span></a>
+      <a href="/#recommend">相关推荐</a>
+      <a href="/#timeline">更新时间线</a>
+      <a href="/#submit">投稿互动</a>
+    </div>
+  </aside>
+
+  <!-- 中间主内容 -->
+  <main class="main-content">
+
+    <!-- 1. 领域概览 -->
+    <section class="section-block" id="overview">
+      <div class="section-header">
+        <h2>国产福利内容生态概览</h2>
+        <a href="/#deep-dive" class="more-link">深度解析 →</a>
+      </div>
+      <div class="overview-text">
+        <p>
+          国产福利内容在 2026 年秋季呈现出明显的分层趋势。<strong>长视频平台</strong>以剧集和综艺为主力，腾讯视频 10 月上线的《风起长安》单集平均播放量达到 3400 万次；<strong>国创动画</strong>方面，B 站《雾山五行》第二季在 11 月 7 日开播当晚追番人数突破 210 万，弹幕密度创下年度纪录；<strong>独立短片与游戏实况</strong>则集中在短视频平台和垂直社区，TapTap 与小黑盒的讨论热度持续走高。
+        </p>
+        <p>
+          从内容类型看，古装权谋、都市情感、玄幻修仙、悬疑探案构成剧集四大品类，动画则以热血战斗、轻松日常、科幻末世为三大方向。游戏实况的福利内容多集中在《黑神话：悟空》DLC 和《解限机》新赛季，玩家更关注实机演示与隐藏结局解析。独立短片在 Vimeo 和 B 站创作区保持每周 15—20 部的新增节奏，其中“山海计划”系列纪录片在 11 月 8 日放出全集，提供了另一种观看选择。
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. 精选内容推荐 -->
+    <section class="section-block" id="featured">
+      <div class="section-header">
+        <h2>本周值得投入时间的国产条目</h2>
+        <a href="/#updates" class="more-link">全部更新 →</a>
+      </div>
+      <div class="card-grid">
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/fengqi400/400/300" width="400" height="300" loading="lazy" alt="《风起长安》古装权谋剧海报">
+            <span class="card-type">剧集</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">风起长安</h3>
+            <div class="card-tags">
+              <span class="tag">古装权谋</span>
+              <span class="tag tag-neutral">腾讯视频</span>
+              <span class="tag tag-neutral">更新至18集</span>
+            </div>
+            <p class="card-desc">长安城三日内连发两起密案，大理寺少卿与不良帅联手追查，第14集朝堂对峙戏单场弹幕破12万条。</p>
+            <div class="card-meta">
+              <span class="hot">热度 98</span>
+              <span>评分 8.7</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/wushan400/400/300" width="400" height="300" loading="lazy" alt="《雾山五行》第二季动画场景">
+            <span class="card-type">动画</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">雾山五行 第二季</h3>
+            <div class="card-tags">
+              <span class="tag">国创热血</span>
+              <span class="tag tag-neutral">B站独家</span>
+              <span class="tag tag-neutral">每周五更新</span>
+            </div>
+            <p class="card-desc">11月7日开播首集同时在线观看人数达47万，水墨打斗场面延续第一季风格，新增火行支线剧情。</p>
+            <div class="card-meta">
+              <span class="hot">热度 96</span>
+              <span>评分 9.2</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/shanhai400/400/300" width="400" height="300" loading="lazy" alt="山海计划纪录片航拍画面">
+            <span class="card-type">纪录片</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">山海计划·西南篇</h3>
+            <div class="card-tags">
+              <span class="tag">人文地理</span>
+              <span class="tag tag-neutral">全集上线</span>
+              <span class="tag tag-neutral">8集</span>
+            </div>
+            <p class="card-desc">摄制组用14个月跟拍横断山脉六个村落，第5集记录独龙族织女的手艺传承，豆瓣开分8.9。</p>
+            <div class="card-meta">
+              <span class="hot">热度 91</span>
+              <span>评分 8.9</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/heishen400/400/300" width="400" height="300" loading="lazy" alt="黑神话悟空DLC实机画面">
+            <span class="card-type">游戏</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">黑神话：悟空 DLC「再战天宫」</h3>
+            <div class="card-tags">
+              <span class="tag">动作角色扮演</span>
+              <span class="tag tag-neutral">实况解析</span>
+              <span class="tag tag-neutral">新增Boss</span>
+            </div>
+            <p class="card-desc">11月5日上线的DLC新增四张地图和杨戬二阶段形态，B站UP主“老戴在此”实况播放量破680万。</p>
+            <div class="card-meta">
+              <span class="hot">热度 95</span>
+              <span>评分 9.0</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/xuanyi400/400/300" width="400" height="300" loading="lazy" alt="《悬疑笔记》探案剧场景">
+            <span class="card-type">剧集</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">悬疑笔记·雨夜迷案</h3>
+            <div class="card-tags">
+              <span class="tag">悬疑探案</span>
+              <span class="tag tag-neutral">爱奇艺</span>
+              <span class="tag tag-neutral">完结</span>
+            </div>
+            <p class="card-desc">12集短剧，法医与刑警搭档侦破连环失踪案，第9集反转牵出三年前的旧案，结局留了第二季钩子。</p>
+            <div class="card-meta">
+              <span class="hot">热度 88</span>
+              <span>评分 8.4</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/jiexian400/400/300" width="400" height="300" loading="lazy" alt="解限机新赛季机甲对战">
+            <span class="card-type">游戏</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">解限机 第三赛季「铁幕」</h3>
+            <div class="card-tags">
+              <span class="tag">机甲竞技</span>
+              <span class="tag tag-neutral">新机体</span>
+              <span class="tag tag-neutral">赛季攻略</span>
+            </div>
+            <p class="card-desc">新赛季推出三台可变形机甲，其中“赤霄”在测试服胜率52.3%，虎牙主播“机核老K”做了配装拆解。</p>
+            <div class="card-meta">
+              <span class="hot">热度 86</span>
+              <span>评分 8.2</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/dushi400/400/300" width="400" height="300" loading="lazy" alt="都市情感剧《三十而已2》剧照">
+            <span class="card-type">剧集</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">三十而已2</h3>
+            <div class="card-tags">
+              <span class="tag">都市情感</span>
+              <span class="tag tag-neutral">东方卫视</span>
+              <span class="tag tag-neutral">更新至24集</span>
+            </div>
+            <p class="card-desc">原班人马回归，顾佳的新茶品牌在第18集遭遇供应商危机，单集收视率2.1%位列同时段第一。</p>
+            <div class="card-meta">
+              <span class="hot">热度 84</span>
+              <span>评分 8.1</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/duanpian400/400/300" width="400" height="300" loading="lazy" alt="独立短片《夜航》镜头">
+            <span class="card-type">短片</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">夜航</h3>
+            <div class="card-tags">
+              <span class="tag">独立短片</span>
+              <span class="tag tag-neutral">FIRST影展</span>
+              <span class="tag tag-neutral">23分钟</span>
+            </div>
+            <p class="card-desc">导演用一镜到底拍完夜间货车司机的最后一段路程，在第18届FIRST青年影展获评委会特别提及。</p>
+            <div class="card-meta">
+              <span class="hot">热度 79</span>
+              <span>评分 8.6</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 3. 最新更新 -->
+    <section class="section-block" id="updates">
+      <div class="section-header">
+        <h2>11月7日至8日更新条目</h2>
+        <a href="/#timeline" class="more-link">完整时间线 →</a>
+      </div>
+      <div class="update-list">
+
+        <div class="update-item">
+          <span class="update-index">01</span>
+          <div class="update-content">
+            <div class="update-name">雾山五行 第二季 第2集 <span class="badge">新</span></div>
+            <div class="update-summary">火行与土行联手对抗嗔兽，片尾彩蛋出现水墨风格的麒麟坐骑。</div>
+          </div>
+          <span class="update-date">11月8日 10:00</span>
+        </div>
+
+        <div class="update-item">
+          <span class="update-index">02</span>
+          <div class="update-content">
+            <div class="update-name">山海计划·西南篇 全集 <span class="badge">新</span></div>
+            <div class="update-summary">8集一次性放出，第6集记录的傈僳族采蜜人引发弹幕大量讨论。</div>
+          </div>
+          <span class="update-date">11月8日 09:30</span>
+        </div>
+
+        <div class="update-item">
+          <span class="update-index">03</span>
+          <div class="update-content">
+            <div class="update-name">风起长安 第18集</div>
+            <div class="update-summary">大理寺少卿身世线索浮出水面，结尾三分钟反转登上微博文娱热搜第7。</div>
+          </div>
+          <span class="update-date">11月7日 20:00</span>
+        </div>
+
+        <div class="update-item">
+          <span class="update-index">04</span>
+          <div class="update-content">
+            <div class="update-name">黑神话：悟空 DLC 隐藏结局解析</div>
+            <div class="update-summary">UP主“老戴在此”发布32分钟视频，拆解杨戬第三阶段触发条件。</div>
+          </div>
+          <span class="update-date">11月7日 18:45</span>
+        </div>
+
+        <div class="update-item">
+          <span class="update-index">05</span>
+          <div class="update-content">
+            <div class="update-name">解限机 第三赛季平衡性补丁</div>
+            <div class="update-summary">官方下调“赤霄”变形后冲刺速度8%，同时提升轻型机甲护盾回复速率。</div>
+          </div>
+          <span class="update-date">11月7日 16:20</span>
+        </div>
+
+        <div class="update-item">
+          <span class="update-index">06</span>
+          <div class="update-content">
+            <div class="update-name">悬疑笔记·雨夜迷案 第12集（大结局）</div>
+            <div class="update-summary">真凶身份揭晓，片尾字幕滚动后出现3秒的雨夜敲门声彩蛋。</div>
+          </div>
+          <span class="update-date">11月7日 12:00</span>
+        </div>
+
+        <div class="update-item">
+          <span class="update-index">07</span>
+          <div class="update-content">
+            <div class="update-name">三十而已2 第24集</div>
+            <div class="update-summary">顾佳与供应商谈判破裂，王漫妮接手新门店开业，收视率2.1%。</div>
+          </div>
+          <span class="update-date">11月6日 21:30</span>
+        </div>
+
+        <div class="update-item">
+          <span class="update-index">08</span>
+          <div class="update-content">
+            <div class="update-name">夜航 上线B站创作区</div>
+            <div class="update-summary">23分钟短片开放免费观看，导演在评论区回复了关于长镜头调度的提问。</div>
+          </div>
+          <span class="update-date">11月6日 15:00</span>
+        </div>
+
+        <div class="update-item">
+          <span class="update-index">09</span>
+          <div class="update-content">
+            <div class="update-name">国创发布会 2026秋季片单公布</div>
+            <div class="update-summary">B站公布12部新作，包括《三体》动画第二季和原创科幻《深空回声》。</div>
+          </div>
+          <span class="update-date">11月5日 19:00</span>
+        </div>
+
+        <div class="update-item">
+          <span class="update-index">10</span>
+          <div class="update-content">
+            <div class="update-name">TapTap 国产独立游戏扶持名单</div>
+            <div class="update-summary">20款作品入选，每款获得5万至20万元不等的推广资源包。</div>
+          </div>
+          <span class="update-date">11月4日 11:00</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. 分类入口 -->
+    <section class="section-block" id="categories">
+      <div class="section-header">
+        <h2>按类型与平台筛选条目</h2>
+      </div>
+      <div class="category-grid">
+        <a href="/#featured" class="category-item">
+          <span class="category-icon">🎬</span>
+          <span class="category-name">古装权谋剧</span>
+          <span class="category-count">86 部</span>
+        </a>
+        <a href="/#featured" class="category-item">
+          <span class="category-icon">🗡️</span>
+          <span class="category-name">国创热血动画</span>
+          <span class="category-count">64 部</span>
+        </a>
+        <a href="/#featured" class="category-item">
+          <span class="category-icon">🔍</span>
+          <span class="category-name">悬疑探案短剧</span>
+          <span class="category-count">52 部</span>
+        </a>
+        <a href="/#featured" class="category-item">
+          <span class="category-icon">🏙️</span>
+          <span class="category-name">都市情感剧</span>
+          <span class="category-count">73 部</span>
+        </a>
+        <a href="/#featured" class="category-item">
+          <span class="category-icon">🎮</span>
+          <span class="category-name">国产游戏实况</span>
+          <span class="category-count">118 部</span>
+        </a>
+        <a href="/#featured" class="category-item">
+          <span class="category-icon">🎞️</span>
+          <span class="category-name">独立短片</span>
+          <span class="category-count">95 部</span>
+        </a>
+        <a href="/#featured" class="category-item">
+          <span class="category-icon">📖</span>
+          <span class="category-name">人文纪录片</span>
+          <span class="category-count">41 部</span>
+        </a>
+        <a href="/#featured" class="category-item">
+          <span class="category-icon">⚔️</span>
+          <span class="category-name">玄幻修仙</span>
+          <span class="category-count">58 部</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 5. 深度解析 -->
+    <section class="section-block" id="deep-dive">
+      <div class="section-header">
+        <h2>国产福利内容的分层逻辑与判断方法</h2>
+      </div>
+      <div class="deep-dive">
+        <h3>平台独播与全网分发的资源差异</h3>
+        <p>
+          腾讯视频在2026年10月拿下了《风起长安》的独播权，这意味着非会员用户需要等待每周三的限免窗口，而B站上关于该剧的二创剪辑则在播出后48小时内集中出现。独播策略直接影响内容的可达性：一部独播剧的完整观看路径只有一条，但二创和讨论分布在多个平台，形成“正片单点、讨论多点”的结构。
+        </p>
+        <p>
+          对比来看，独立短片《夜航》选择了FIRST影展首映、B站创作区上线、Vimeo同步的三线分发，观看门槛从影展的购票变为免费在线。这种分发方式对内容本身的要求更高——没有平台推荐位的加持，前3分钟的留存率决定它能否被更多人看到。《夜航》在B站上线首日播放量12.7万，完播率31%，对于23分钟的短片来说属于中上水平。
+        </p>
+        <div class="highlight">
+          判断一条国产福利内容是否值得优先投入时间，可以拆成三个可核对的环节：① 播出前是否有超过2家垂直媒体的前瞻报道；② 上线24小时内豆瓣或B站是否出现带具体时间点的长评（800字以上）；③ 二创视频的数量与平均播放量是否在首周内形成明显曲线。三个环节缺一个，说明讨论热度可能来自平台推流而非自然发酵。
+        </div>
+
+        <h3>动画与真人剧的评分参照系差异</h3>
+        <p>
+          《雾山五行》第二季豆瓣开分9.2，这个分数放在真人剧里属于“年度神作”级别，但在国创动画的语境下，9分以上每年至少有3—4部。动画观众对作画张力和分镜设计的宽容度更高，而对剧情节奏的容忍度更低——第一季第3集因为回忆杀占比过高，短评区两天内新增了400多条两星。真人剧的评分则更受演员表演和改编忠实度影响，《风起长安》原著粉在第14集朝堂戏后集中打出的四星，普遍提到了“台词保留了原著的半文半白”。
+        </p>
+        <p>
+          用同一套标准跨类型比较参考价值有限。动画看制作公司和导演的过往作品序列，真人剧看编剧和制片方的项目履历。B站国创区每周五的更新时段集中了大部分头部作品，而真人剧的排播分散在工作日晚间和周末，两者的观看节奏完全不同。
+        </p>
+
+        <h3>游戏实况的“福利内容”该怎么理解</h3>
+        <p>
+          《黑神话：悟空》DLC上线后，B站和抖音的实况视频在48小时内突破了1.2万条。所谓“福利”在游戏语境里通常指隐藏剧情、强力装备的获取路线或高难度Boss的无伤打法，而非其他含义。UP主“老戴在此”的32分钟解析视频之所以播放量领先，是因为他在第18分钟给出了杨戬第三阶段的精确触发条件：需要在第二阶段结束前保留至少2次闪避不消耗，这条信息在其他视频里没有出现。
+        </p>
+        <ul>
+          <li>优先看发布时间在官方补丁说明之后2小时内的实况，避免基于旧版本数据。</li>
+          <li>检查UP主是否标注了游戏版本号和平台（PC/PS5），跨平台手感差异会影响招式判定。</li>
+          <li>弹幕密度集中在某一分钟时，通常意味着那里有关键机制或剧情转折。</li>
+        </ul>
+
+        <h3>独立短片的发现路径与筛选成本</h3>
+        <p>
+          FIRST影展的入围片单是独立短片最集中的入口，2026年剧情短片竞赛单元共收到847部报名，最终入围23部。《夜航》从入围到上线B站用了不到两个月，这个速度在往年并不常见——2025年同单元的《回南天》从影展结束到平台上线间隔了5个月。发行窗口缩短意味着短片的热度周期与影展周期部分重叠，观众可以在影展期间就看到部分作品。
+        </p>
+        <p>
+          筛选短片的成本主要在后半段：前5分钟能判断画面质感和表演水平，但叙事完整度需要看到最后。一个可操作的办法是直接拉到进度条的70%位置，看是否有明确的场景收束或情绪落点——没有的话，大概率是学生作业或未完成品。这个判断不绝对，但能过滤掉相当一部分不值得看完的条目。
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. 体验指南 -->
+    <section class="section-block" id="guide">
+      <div class="section-header">
+        <h2>从类型偏好出发的观看顺序</h2>
+      </div>
+      <div class="guide-steps">
+        <div class="guide-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>先定类型再看评分</h4>
+            <p>古装权谋剧的评分普遍集中在7.5—8.5之间，超过8.5的通常是制作或表演有明显突破的。《风起长安》8.7分的关键加分项是第14集的单场长镜头调度，短评区有47条提到了这个细节。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>用更新频率反推制作水准</h4>
+            <p>周更且每集时长稳定在42—45分钟的剧集，制作流程相对规范。如果出现连续两周时长缩水到30分钟以下，要么是后期赶工，要么是平台按集数拆播。国创动画的周更稳定性更差，季中停更两周以上的作品需要谨慎追。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>游戏实况看版本标注</h4>
+            <p>《黑神话：悟空》DLC在11月6日推送了1.0.3补丁，调整了杨戬二阶段的攻击前摇。标了“1.0.3”的实况在招式应对上更准确，没标的可能基于旧版本。看之前先扫一眼简介区的版本号，能省掉不少纠错成本。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>短片先看片尾字幕</h4>
+            <p>独立短片的制作规格从片尾字幕的完整度能看出大概：有完整的摄影、灯光、美术分组，通常意味着至少是工作室级别出品；只有导演和摄影两个人的，多半是个人作品。这不是质量判断，但能帮你调整预期。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section class="section-block" id="faq">
+      <div class="section-header">
+        <h2>关于国产福利内容的常见疑问</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>《风起长安》第18集结尾的反转是什么意思？</summary>
+          <div class="faq-answer">第18集结尾，大理寺少卿在卷宗里发现一枚不属于案发时间的火漆印，这枚印的纹路与他父亲旧宅门上的封条一致。结合第14集他回忆童年时闪过的半张脸，可以判断他父亲与三年前的旧案有直接关联。第19集预告里有他站在父亲书房外的镜头，说明下一集将正面展开这条线。</div>
+        </details>
+        <details class="faq-item">
+          <summary>雾山五行第二季和第一季的剧情衔接需要补哪些集？</summary>
+          <div class="faq-answer">第一季共6集，其中第3集和第5集是主线推进的关键集，涉及五行封印和嗔兽的来历。第二季第1集开场有约90秒的前情回顾，但省略了火行与土行初次相遇的细节，这部分在第一季第4集第12分钟到第18分钟。如果时间有限，补第3集和第4集就够跟上第二季的主线。</div>
+        </details>
+        <details class="faq-item">
+          <summary>黑神话悟空DLC的隐藏结局触发条件是什么？</summary>
+          <div class="faq-answer">根据B站UP主“老戴在此”11月7日发布的解析，触发条件是在杨戬第二阶段结束前保留至少2次未使用的闪避，进入第三阶段后30秒内不主动攻击，等待杨戬喊出特定台词后再出手。这个条件在11月6日的1.0.3补丁中没有被修改，PC和PS5版本均适用。</div>
+        </details>
+        <details class="faq-item">
+          <summary>山海计划·西南篇的拍摄周期和取景地有哪些？</summary>
+          <div class="faq-answer">摄制组从2025年8月到2026年10月跟拍了14个月，取景地包括云南怒江、四川甘孜、西藏林芝三个片区，具体涉及独龙江乡、丹巴中路藏寨和墨脱背崩乡。第5集独龙族织女的部分在独龙江乡拍摄了23天，正片只用了11分钟素材。</div>
+        </details>
+        <details class="faq-item">
+          <summary>解限机第三赛季“赤霄”的配装怎么搭配？</summary>
+          <div class="faq-answer">测试服胜率52.3%的配装通常选择轻型护盾加双联装速射炮，放弃重型装甲换取变形后的机动性。虎牙主播“机核老K”在11月7日的直播里用了这套配装打了12局，赢了9局，核心思路是利用赤霄变形后的冲刺速度绕后打乱对方阵型。11月7日的补丁下调了冲刺速度8%，需要相应提高护盾回复的优先级。</div>
+        </details>
+        <details class="faq-item">
+          <summary>独立短片《夜航》的导演还拍过哪些作品？</summary>
+          <div class="faq-answer">《夜航》导演此前拍过两部短片：2024年的《白昼将尽》入围了平遥国际电影展的平遥一角单元，2025年的《河岸》在Vimeo上获得过编辑推荐。三部作品都围绕夜间工作者的生活展开，形成了一组主题相近的短片序列。《夜航》是其中时长最长的一部，也是第一部在B站上线的。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8. 用户评论 -->
+    <section class="section-block" id="comments">
+      <div class="section-header">
+        <h2>来自观众和玩家的一手反馈</h2>
+      </div>
+      <div class="comment-list">
+        <div class="comment-item">
+          <div class="comment-head">
+            <span class="comment-avatar">林</span>
+            <span class="comment-nick">林间有风</span>
+            <span class="comment-time">11月8日</span>
+          </div>
+          <p class="comment-text">风起长安第18集那个火漆印的镜头给得太快了，倒回去看了两遍才认出是父亲旧宅的纹路。编剧埋线可以，就是别下一集又拖一整集回忆。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <span class="comment-avatar">阿</span>
+            <span class="comment-nick">阿茶不喝茶</span>
+            <span class="comment-time">11月8日</span>
+          </div>
+          <p class="comment-text">雾山五行第二季第2集的打斗分镜比第一季还密，火行那个转身劈的镜头我反复看了五遍。就是片尾彩蛋太短了，麒麟坐骑只露了个头。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <span class="comment-avatar">老</span>
+            <span class="comment-nick">老戴的观众A</span>
+            <span class="comment-time">11月7日</span>
+          </div>
+          <p class="comment-text">杨戬第三阶段那个闪避保留的机制，我自己打了三个小时才摸出来，老戴的视频直接讲清楚了。1.0.3补丁之后前摇变短，原来的闪避时机要提前0.3秒左右。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <span class="comment-avatar">山</span>
+            <span class="comment-nick">山城小面</span>
+            <span class="comment-time">11月8日</span>
+          </div>
+          <p class="comment-text">山海计划西南篇第6集采蜜人那段，悬崖上挂绳子的镜头看得手心出汗。不过第7集讲茶马古道的部分有点散，六个村落的线索切来切去，不如前几集专注。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <span class="comment-avatar">Q</span>
+            <span class="comment-nick">Q弹麻薯</span>
+            <span class="comment-time">11月7日</span>
+          </div>
+          <p class="comment-text">解限机新赛季赤霄被削了冲刺速度之后，绕后难度高了不少。现在配装得把护盾回复堆上去，不然变形完那两秒真空期太危险。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <span class="comment-avatar">夜</span>
+            <span class="comment-nick">夜航船</span>
+            <span class="comment-time">11月6日</span>
+          </div>
+          <p class="comment-text">《夜航》那个一镜到底其实是三段拼的，中间有两处用夜色转场遮了剪辑点。导演在评论区承认了，说受限于拍摄周期。不影响观感，但别吹成一镜到底。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <span class="comment-avatar">悬</span>
+            <span class="comment-nick">悬疑爱好者小周</span>
+            <span class="comment-time">11月7日</span>
+          </div>
+          <p class="comment-text">悬疑笔记结局那个敲门声彩蛋，我一开始以为是邻居装修。第二季要是真拍，希望别把法医和刑警的感情线写太重，第一季第7集那两集就有点拖。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <span class="comment-avatar">三</span>
+            <span class="comment-nick">三十而已老粉</span>
+            <span class="comment-time">11月6日</span>
+          </div>
+          <p class="comment-text">顾佳这条线从第15集开始就一直在供应商问题上打转，24集了还没解决。王漫妮的新门店戏份倒是挺有意思的，第22集那个开业布置拍得挺细。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <span class="comment-avatar">独</span>
+            <span class="comment-nick">独立影像观察</span>
+            <span class="comment-time">11月5日</span>
+          </div>
+          <p class="comment-text">FIRST今年短片单元的入围片单整体偏纪实风格，剧情片只有5部。《夜航》在里面算是叙事最完整的一部，不过跟2025年那批比，实验性弱了一些。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <span class="comment-avatar">黑</span>
+            <span class="comment-nick">黑森林常驻</span>
+            <span class="comment-time">11月8日</span>
+          </div>
+          <p class="comment-text">这几天更新量确实大，昨天打开列表翻了三屏没翻完。就是有些条目的简介写得太笼统，光看标题根本不知道讲什么，得点进去才知道。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <span class="comment-avatar">机</span>
+            <span class="comment-nick">机甲不是万能的</span>
+            <span class="comment-time">11月7日</span>
+          </div>
+          <p class="comment-text">赤霄这机体的设计思路其实挺矛盾的，变形后机动性拉满但火力跟不上。胜率52.3%很大程度是测试服大家不熟悉怎么打，过两周估计就掉下来了。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <span class="comment-avatar">动</span>
+            <span class="comment-nick">动画民工小刘</span>
+            <span class="comment-time">11月8日</span>
+          </div>
+          <p class="comment-text">国创发布会那个片单里《深空回声》的PV质感不错，但导演是新人，之前只做过一部短片。三体第二季倒是不担心制作，就是希望别再像第一季那样节奏赶。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <span class="comment-avatar">路</span>
+            <span class="comment-nick">路过打个酱油</span>
+            <span class="comment-time">11月6日</span>
+          </div>
+          <p class="comment-text">最近剧太多追不过来，风起长安和三十而已2同时在看，结果两边的剧情都有点记混了。都是都市/古装里的多线叙事，脑子不够用。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <span class="comment-avatar">T</span>
+            <span class="comment-nick">TapTap老玩家</span>
+            <span class="comment-time">11月5日</span>
+          </div>
+          <p class="comment-text">独立游戏扶持名单里有几款之前试玩节玩过的，《锈湖旅人》和《纸片江湖》都在里面。5万到20万的资源包对中小团队来说挺实在的，比单纯给奖金有用。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <span class="comment-avatar">雨</span>
+            <span class="comment-nick">雨夜不带伞</span>
+            <span class="comment-time">11月7日</span>
+          </div>
+          <p class="comment-text">悬疑笔记第9集那个反转虽然能猜到，但执行得还行。就是法医那个角色全程面瘫，情绪戏全靠刑警一个人撑，有点失衡。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <span class="comment-avatar">纪</span>
+            <span class="comment-nick">纪录片打卡人</span>
+            <span class="comment-time">11月8日</span>
+          </div>
+          <p class="comment-text">山海计划第5集独龙族织女那段，23天素材剪11分钟，密度很高。但配乐有点满，好几个地方其实可以留白让环境声出来。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. 相关资讯 -->
+    <section class="section-block" id="news">
+      <div class="section-header">
+        <h2>国产内容行业动态</h2>
+      </div>
+      <div class="news-list">
+        <article class="news-item">
+          <div class="news-title">B站国创发布会公布12部新作，三体第二季定档2027年1月</div>
+          <div class="news-date">2026年11月5日</div>
+          <p class="news-summary">发布会现场公布了《三体》动画第二季的首支PV，制作方艺画开天确认剧本已完成全部18集，预计2027年1月上线。同场还公布了原创科幻《深空回声》，导演为前《灵笼》分镜师周明远。</p>
+        </article>
+        <article class="news-item">
+          <div class="news-title">《风起长安》第14集朝堂戏单场弹幕破12万条，创腾讯视频年度纪录</div>
+          <div class="news-date">2026年11月3日</div>
+          <p class="news-summary">该集播出后48小时内，腾讯视频站内弹幕总量达到12.3万条，超过此前《雪中悍刀行2》保持的9.8万条纪录。弹幕峰值出现在第27分钟，对应大理寺少卿与太傅的对峙台词。</p>
+        </article>
+        <article class="news-item">
+          <div class="news-title">TapTap公布2026年国产独立游戏扶持名单，20款作品入选</div>
+          <div class="news-date">2026年11月4日</div>
+          <p class="news-summary">入选作品包括《锈湖旅人》《纸片江湖》《山海食堂》等，每款获得5万至20万元推广资源包，涵盖首页推荐位和专题策划。TapTap方面表示2027年将把扶持名额扩大到30款。</p>
+        </article>
+        <article class="news-item">
+          <div class="news-title">《黑神话：悟空》DLC首周销量突破180万份，杨戬Boss战成讨论焦点</div>
+          <div class="news-date">2026年11月6日</div>
+          <p class="news-summary">游戏科学公布的数据显示，DLC在PC和PS5双平台的首周销量为182万份，其中PS5占比37%。玩家讨论集中在杨戬第三阶段的触发机制上，官方论坛相关帖子超过2400条。</p>
+        </article>
+        <article class="news-item">
+          <div class="news-title">第18届FIRST青年影展短片单元入围名单公布，剧情短片仅5部</div>
+          <div class="news-date">2026年10月28日</div>
+          <p class="news-summary">本届短片竞赛单元共收到847部报名，最终入围23部。剧情短片仅占5部，纪录片和实验影像占比上升至78%。《夜航》是5部剧情短片之一，获评委会特别提及。</p>
+        </article>
+        <article class="news-item">
+          <div class="news-title">《雾山五行》第二季开播当晚追番人数突破210万</div>
+          <div class="news-date">2026年11月7日</div>
+          <p class="news-summary">B站数据显示，第二季第1集上线后两小时内追番人数从187万增至214万，弹幕总量在首集播出期间达到8.7万条。制作方六道无鱼在评论区确认第三季已进入前期策划。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10. 相关推荐 -->
+    <section class="section-block" id="recommend">
+      <div class="section-header">
+        <h2>按具体方向延伸浏览</h2>
+      </div>
+      <div class="rec-tags">
+        <a href="/#featured">古装权谋剧推荐</a>
+        <a href="/#featured">国创热血动画片单</a>
+        <a href="/#featured">独立短片FIRST入围作品</a>
+        <a href="/#featured">黑神话悟空DLC攻略合集</a>
+        <a href="/#featured">悬疑探案短剧排行</a>
+        <a href="/#featured">人文纪录片取景地盘点</a>
+        <a href="/#featured">都市情感剧收视率对比</a>
+        <a href="/#featured">解限机机甲配装方案</a>
+      </div>
+    </section>
+
+    <!-- 11. 补充板块：时间线 -->
+    <section class="section-block" id="timeline">
+      <div class="section-header">
+        <h2>10月9日至11月8日条目更新节点</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-date">11月8日</div>
+          <div class="timeline-text"><strong>山海计划·西南篇</strong> 全集上线，8集一次性放出；<strong>雾山五行第二季</strong> 第2集更新。</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-date">11月7日</div>
+          <div class="timeline-text"><strong>雾山五行第二季</strong> 开播；<strong>悬疑笔记·雨夜迷案</strong> 大结局；<strong>解限机</strong> 平衡性补丁推送。</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-date">11月6日</div>
+          <div class="timeline-text"><strong>黑神话：悟空</strong> DLC 1.0.3补丁上线；<strong>夜航</strong> 在B站创作区开放免费观看。</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-date">11月5日</div>
+          <div class="timeline-text"><strong>B站国创发布会</strong> 公布12部新作片单；<strong>黑神话：悟空</strong> DLC 正式发售。</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-date">11月3日</div>
+          <div class="timeline-text"><strong>风起长安</strong> 第14集弹幕量破12万条，创腾讯视频年度单集纪录。</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-date">10月28日</div>
+          <div class="timeline-text"><strong>第18届FIRST青年影展</strong> 短片单元入围名单公布，《夜航》获评委会特别提及。</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-date">10月9日</div>
+          <div class="timeline-text"><strong>三十而已2</strong> 开播，首集收视率1.8%，第三周升至2.1%。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 投稿互动 -->
+    <section class="section-block" id="submit">
+      <div class="interact-box">
+        <div>
+          <h3>分享你发现的国产好内容</h3>
+          <p>条目投稿、观影笔记、游戏攻略均可提交，编辑会在24小时内查看并回复。</p>
+        </div>
+        <a href="/#submit" class="btn-primary">前往投稿页面</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 右侧辅助栏 -->
+  <aside class="aux-sidebar" aria-label="辅助信息">
+    <div class="aux-card">
+      <div class="aux-title"><span class="icon">🔥</span> 本周热度榜</div>
+      <div class="hot-list">
+        <div class="hot-item">
+          <span class="hot-rank">1</span>
+          <span class="hot-name">风起长安 <span class="hot-tag">剧集</span></span>
+        </div>
+        <div class="hot-item">
+          <span class="hot-rank">2</span>
+          <span class="hot-name">雾山五行 第二季 <span class="hot-tag">动画</span></span>
+        </div>
+        <div class="hot-item">
+          <span class="hot-rank">3</span>
+          <span class="hot-name">黑神话：悟空 DLC <span class="hot-tag">游戏</span></span>
+        </div>
+        <div class="hot-item">
+          <span class="hot-rank">4</span>
+          <span class="hot-name">山海计划·西南篇 <span class="hot-tag">纪录片</span></span>
+        </div>
+        <div class="hot-item">
+          <span class="hot-rank">5</span>
+          <span class="hot-name">三十而已2 <span class="hot-tag">剧集</span></span>
+        </div>
+        <div class="hot-item">
+          <span class="hot-rank">6</span>
+          <span class="hot-name">解限机 第三赛季 <span class="hot-tag">游戏</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="aux-card">
+      <div class="aux-title"><span class="icon">🕐</span> 实时更新流</div>
+      <div class="update-stream">
+        <div class="stream-item"><span class="stream-dot"></span><span>雾山五行 第2集上线</span><span class="stream-time">10:00</span></div>
+        <div class="stream-item"><span class="stream-dot"></span><span>山海计划 全集放出</span><span class="stream-time">09:30</span></div>
+        <div class="stream-item"><span class="stream-dot"></span><span>风起长安 第18集</span><span class="stream-time">昨天</span></div>
+        <div class="stream-item"><span class="stream-dot"></span><span>黑神话 DLC 解析</span><span class="stream-time">昨天</span></div>
+        <div class="stream-item"><span class="stream-dot"></span><span>解限机 平衡性补丁</span><span class="stream-time">昨天</span></div>
+        <div class="stream-item"><span class="stream-dot"></span><span>悬疑笔记 大结局</span><span class="stream-time">昨天</span></div>
+      </div>
+    </div>
+
+    <div class="aux-card">
+      <div class="aux-title"><span class="icon">🏷️</span> 条目标签</div>
+      <div class="tag-cloud">
+        <a href="/#featured">古装权谋</a>
+        <a href="/#featured">国创热血</a>
+        <a href="/#featured">悬疑探案</a>
+        <a href="/#featured">都市情感</a>
+        <a href="/#featured">独立短片</a>
+        <a href="/#featured">游戏实况</a>
+        <a href="/#featured">人文纪录片</a>
+        <a href="/#featured">玄幻修仙</a>
+        <a href="/#featured">机甲竞技</a>
+        <a href="/#featured">一镜到底</a>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 页尾 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <rect width="28" height="28" rx="7" fill="#c9a86c"/>
+          <path d="M8 20L14 7l6 13H8z" fill="#1e3329" opacity="0.85"/>
+          <circle cx="14" cy="17.5" r="2.2" fill="#c9a86c"/>
+        </svg>
+        <span class="footer-brand-text">黑森林国产福利导航</span>
+      </div>
+      <p class="footer-desc">
+        覆盖2026年10月至11月的国产剧集、国创动画、独立短片与游戏实况条目，以周更节奏追踪播出与发售节点。条目数据来自平台公开信息与用户投稿，评分与热度为站内示例口径。
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>内容频道</h4>
+      <ul>
+        <li><a href="/#overview">领域概览</a></li>
+        <li><a href="/#featured">精选推荐</a></li>
+        <li><a href="/#updates">最新更新</a></li>
+        <li><a href="/#categories">分类入口</a></li>
+        <li><a href="/#deep-dive">深度解析</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>互动与参考</h4>
+      <ul>
+        <li><a href="/#faq">常见问题</a></li>
+        <li><a href="/#comments">用户评论</a></li>
+        <li><a href="/#news">相关资讯</a></li>
+        <li><a href="/#timeline">更新时间线</a></li>
+        <li><a href="/#submit">投稿互动</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>条目类型</h4>
+      <ul>
+        <li><a href="/#featured">古装权谋剧</a></li>
+        <li><a href="/#featured">国创热血动画</a></li>
+        <li><a href="/#featured">独立短片</a></li>
+        <li><a href="/#featured">游戏实况解析</a></li>
+        <li><a href="/#featured">人文纪录片</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 黑森林国产福利导航 · 内容聚合示例站点</span>
+    <span>数据更新至 2026年11月8日 · 条目信息以平台实际为准</span>
+  </div>
+</footer>
+
+<!-- 回到顶部 -->
+<button class="back-top" id="backTop" aria-label="回到顶部">↑</button>
+
+<script>
+(function() {
+  'use strict';
+
+  // 汉堡菜单
+  var hamburger = document.getElementById('hamburgerBtn');
+  var mainNav = document.getElementById('mainNav');
+  var overlay = document.getElementById('overlay');
+
+  function openMenu() {
+    mainNav.classList.add('open');
+    overlay.classList.add('show');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    mainNav.classList.remove('open');
+    overlay.classList.remove('show');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  if (hamburger) {
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (mainNav.classList.contains('open')) { closeMenu(); } else { openMenu(); }
+    });
+  }
+  if (overlay) {
+    overlay.addEventListener('click', closeMenu);
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { closeMenu(); }
+  });
+  // 点击导航后收起
+  if (mainNav) {
+    mainNav.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A' && mainNav.classList.contains('open')) {
+        closeMenu();
+      }
+    });
+  }
+
+  // 回到顶部
+  var backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 500) {
+      backTop.classList.add('show');
+    } else {
+      backTop.classList.remove('show');
+    }
+  });
+  backTop.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // 侧栏滚动高亮
+  var channelLinks = document.querySelectorAll('#channelNav a');
+  var sections = [];
+  channelLinks.forEach(function(link) {
+    var id = link.getAttribute('href').replace('/#', '');
+    var sec = document.getElementById(id);
+    if (sec) { sections.push({ id: id, el: sec, link: link }); }
+  });
+
+  function highlightNav() {
+    var scrollPos = window.scrollY + 140;
+    var current = sections[0];
+    sections.forEach(function(s) {
+      if (s.el.offsetTop <= scrollPos) { current = s; }
+    });
+    channelLinks.forEach(function(l) { l.classList.remove('active'); });
+    if (current) { current.link.classList.add('active'); }
+  }
+  window.addEventListener('scroll', highlightNav);
+  highlightNav();
+
+  // 搜索本地条目
+  var searchInput = document.getElementById('searchInput');
+  var searchBtn = document.getElementById('searchBtn');
+  var allCards = document.querySelectorAll('.card');
+  var allUpdateItems = document.querySelectorAll('.update-item');
+
+  function doSearch() {
+    var q = searchInput.value.trim().toLowerCase();
+    if (!q) {
+      allCards.forEach(function(c) { c.style.display = ''; });
+      allUpdateItems.forEach(function(u) { u.style.display = ''; });
+      return;
+    }
+    var found = false;
+    allCards.forEach(function(c) {
+      var text = c.textContent.toLowerCase();
+      if (text.indexOf(q) > -1) {
+        c.style.display = '';
+        found = true;
+      } else {
+        c.style.display = 'none';
+      }
+    });
+    allUpdateItems.forEach(function(u) {
+      var text = u.textContent.toLowerCase();
+      if (text.indexOf(q) > -1) {
+        u.style.display = '';
+        found = true;
+      } else {
+        u.style.display = 'none';
+      }
+    });
+    if (!found) {
+      alert('没有找到与「' + searchInput.value + '」相关的内容，试试其他关键词。');
+    }
+  }
+  if (searchBtn) { searchBtn.addEventListener('click', doSearch); }
+  if (searchInput) {
+    searchInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') { doSearch(); }
+    });
+  }
+})();
+</script>
+
+<!-- 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "黑森林国产福利导航",
+  "description": "聚合国产剧集、国创动画、独立短片与游戏实况的资源索引，按类型、平台与评分分层呈现。",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "《风起长安》第18集结尾的反转是什么意思？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "第18集结尾，大理寺少卿在卷宗里发现一枚不属于案发时间的火漆印，纹路与他父亲旧宅门上的封条一致，暗示他父亲与三年前的旧案有直接关联。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "雾山五行第二季和第一季的剧情衔接需要补哪些集？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "第一季第3集和第5集是主线推进的关键集，第二季第1集有约90秒前情回顾，但省略了火行与土行初次相遇的细节，这部分在第一季第4集第12分钟到第18分钟。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "黑神话悟空DLC的隐藏结局触发条件是什么？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "在杨戬第二阶段结束前保留至少2次未使用的闪避，进入第三阶段后30秒内不主动攻击，等待杨戬喊出特定台词后再出手。该条件在11月6日的1.0.3补丁中未被修改。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "山海计划·西南篇的拍摄周期和取景地有哪些？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "摄制组从2025年8月到2026年10月跟拍了14个月，取景地包括云南怒江、四川甘孜、西藏林芝三个片区，涉及独龙江乡、丹巴中路藏寨和墨脱背崩乡。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "解限机第三赛季赤霄的配装怎么搭配？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "测试服胜率52.3%的配装选择轻型护盾加双联装速射炮，放弃重型装甲换取变形后的机动性。11月7日补丁下调冲刺速度8%后，需要提高护盾回复的优先级。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "独立短片《夜航》的导演还拍过哪些作品？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "导演此前拍过2024年的《白昼将尽》（入围平遥国际电影展平遥一角单元）和2025年的《河岸》（Vimeo编辑推荐）。三部作品都围绕夜间工作者的生活展开。"
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+              </html>

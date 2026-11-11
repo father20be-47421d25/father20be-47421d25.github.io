@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>色界吧社区 - 色彩设计与视觉灵感聚合</title>
+    <meta name="description" content="色界吧社区汇聚色彩搭配方案、视觉设计灵感、调色技巧与设计工具评测。提供每日精选作品、配色趋势、设计师访谈与实战指南，适合平面、UI、插画与室内设计从业者浏览。">
+    <meta name="keywords" content="色界吧社区">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23c44536'/%3E%3Ccircle cx='35' cy='40' r='12' fill='%23f2d7b3'/%3E%3Ccircle cx='65' cy='40' r='12' fill='%234a7a8c'/%3E%3Ccircle cx='50' cy='68' r='12' fill='%238a9a6b'/%3E%3C/svg%3E">
+    <style>
+        :root {
+            --primary: #c44536;
+            --primary-light: #e8a59a;
+            --primary-dark: #8f2c20;
+            --bg: #faf7f2;
+            --surface: #ffffff;
+            --text-primary: #1e1b18;
+            --text-secondary: #5c554e;
+            --text-tertiary: #8a827a;
+            --border: #e5dfd7;
+            --radius-card: 12px;
+            --radius-btn: 8px;
+            --radius-tag: 20px;
+            --shadow-default: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --font-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+            --font-serif: "Source Han Serif SC", "Noto Serif SC", "Songti SC", serif;
+            --header-height: 108px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: var(--header-height); }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: inherit; text-decoration: none; }
+        ul, ol { list-style: none; }
+        button { font-family: inherit; cursor: pointer; border: none; background: none; }
+        img { display: block; max-width: 100%; height: auto; }
+
+        /* 吸顶公告条 + 页头 */
+        .sticky-top {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(250, 247, 242, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        .announce-bar {
+            background: var(--primary-dark);
+            color: #fff;
+            font-size: 0.875rem;
+            padding: 6px 0;
+            overflow: hidden;
+        }
+        .announce-bar .container {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            white-space: nowrap;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .announce-bar .container::-webkit-scrollbar { display: none; }
+        .announce-bar .brand-mark {
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            background: rgba(255,255,255,0.15);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        .announce-bar .item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+        .announce-bar .item .date {
+            font-weight: 600;
+            background: rgba(255,255,255,0.2);
+            padding: 1px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+        }
+        .page-header {
+            padding: 12px 0;
+        }
+        .page-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        .logo-svg {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+        }
+        .brand-text {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            letter-spacing: 0.5px;
+        }
+        .main-nav {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .main-nav a {
+            font-size: 0.9rem;
+            padding: 6px 12px;
+            border-radius: var(--radius-btn);
+            color: var(--text-secondary);
+            transition: background 0.2s, color 0.2s;
+        }
+        .main-nav a:hover,
+        .main-nav a:focus-visible {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-btn);
+            padding: 0 12px;
+            height: 36px;
+            transition: border-color 0.2s;
+        }
+        .search-box:focus-within {
+            border-color: var(--primary);
+        }
+        .search-box input {
+            border: none;
+            background: transparent;
+            font-size: 0.85rem;
+            width: 140px;
+            outline: none;
+            color: var(--text-primary);
+        }
+        .search-box input::placeholder { color: var(--text-tertiary); }
+        .search-box button {
+            color: var(--text-tertiary);
+            font-size: 1rem;
+            padding: 0 4px;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            padding: 8px;
+            border-radius: var(--radius-btn);
+        }
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .hamburger.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+        /* 容器 */
+        .container {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 首屏 */
+        .hero {
+            background: linear-gradient(135deg, #fdf0e6 0%, #f7e2d8 40%, #e8d5c8 100%);
+            border-radius: 0 0 24px 24px;
+            padding: 48px 0 56px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -80px;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(196,69,54,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -40px;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(74,122,140,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        .hero-content h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 28px;
+            max-width: 520px;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: var(--radius-btn);
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-primary:hover,
+        .btn-primary:focus-visible {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+            outline: 2px solid var(--primary-dark);
+            outline-offset: 2px;
+        }
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--primary-dark);
+            padding: 12px 28px;
+            border-radius: var(--radius-btn);
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: 2px solid var(--primary);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-outline:hover,
+        .btn-outline:focus-visible {
+            background: rgba(196,69,54,0.08);
+            transform: translateY(-2px);
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .color-wheel-svg {
+            width: 100%;
+            max-width: 340px;
+            height: auto;
+            filter: drop-shadow(0 8px 24px rgba(196,69,54,0.15));
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .color-wheel-svg { animation: none; }
+            html { scroll-behavior: auto; }
+        }
+
+        /* 三栏门户布局 */
+        .portal-layout {
+            display: grid;
+            grid-template-columns: 180px 1fr 260px;
+            gap: 32px;
+            padding: 40px 0;
+        }
+        .channel-sidebar {
+            position: sticky;
+            top: calc(var(--header-height) + 16px);
+            align-self: start;
+        }
+        .channel-sidebar h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-tertiary);
+            margin-bottom: 12px;
+            padding-left: 8px;
+        }
+        .channel-list li a {
+            display: block;
+            padding: 8px 12px;
+            border-radius: var(--radius-btn);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: background 0.2s, color 0.2s;
+            border-left: 3px solid transparent;
+        }
+        .channel-list li a:hover,
+        .channel-list li a:focus-visible {
+            background: var(--surface);
+            color: var(--primary-dark);
+            border-left-color: var(--primary);
+            outline: 2px solid var(--primary);
+            outline-offset: -2px;
+        }
+        .channel-list li a.active {
+            background: var(--surface);
+            color: var(--primary-dark);
+            font-weight: 600;
+            border-left-color: var(--primary);
+        }
+        .main-content {
+            min-width: 0;
+        }
+        .aux-sidebar {
+            position: sticky;
+            top: calc(var(--header-height) + 16px);
+            align-self: start;
+        }
+
+        /* 板块通用 */
+        .section {
+            margin-bottom: 48px;
+        }
+        .section:last-child { margin-bottom: 0; }
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .section-header h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.3px;
+        }
+        .section-header .more-link {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+        .section-header .more-link:hover {
+            text-decoration: underline;
+        }
+
+        /* 领域概览 */
+        .overview-box {
+            background: var(--surface);
+            border-radius: var(--radius-card);
+            padding: 28px 32px;
+            box-shadow: var(--shadow-default);
+            border: 1px solid var(--border);
+        }
+        .overview-box p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.9;
+            margin-bottom: 16px;
+        }
+        .overview-box p:last-child { margin-bottom: 0; }
+
+        /* 精选内容推荐 - 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .content-card {
+            background: var(--surface);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-default);
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        .card-img-wrap {
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: #f0ebe4;
+        }
+        .card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .content-card:hover .card-img-wrap img {
+            transform: scale(1.03);
+        }
+        .card-body {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-type {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--primary);
+            background: rgba(196,69,54,0.1);
+            padding: 2px 10px;
+            border-radius: var(--radius-tag);
+            margin-bottom: 8px;
+            align-self: flex-start;
+        }
+        .card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .card-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex: 1;
+            margin-bottom: 12px;
+        }
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+        .tag-pill {
+            background: var(--bg);
+            padding: 2px 8px;
+            border-radius: var(--radius-tag);
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+        }
+        .card-heat {
+            margin-left: auto;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* 最新更新 - 紧凑列表 */
+        .update-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .update-item {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .update-item:last-child { border-bottom: none; }
+        .update-date {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+            flex-shrink: 0;
+            width: 72px;
+            font-variant-numeric: tabular-nums;
+        }
+        .update-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            flex-shrink: 0;
+        }
+        .update-summary {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        @media (max-width: 740px) {
+            .update-item { flex-wrap: wrap; }
+            .update-summary { white-space: normal; width: 100%; }
+        }
+
+        /* 分类入口 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+        .category-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-card);
+            padding: 20px 16px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .category-item:hover,
+        .category-item:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-light);
+            outline: 2px solid var(--primary);
+            outline-offset: -2px;
+        }
+        .category-icon {
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+        .category-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* 深度解析 */
+        .deep-dive {
+            background: var(--surface);
+            border-radius: var(--radius-card);
+            padding: 32px;
+            box-shadow: var(--shadow-default);
+            border: 1px solid var(--border);
+        }
+        .deep-dive h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+        .deep-dive h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 24px 0 12px;
+        }
+        .deep-dive h3:first-of-type { margin-top: 0; }
+        .deep-dive p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.9;
+            margin-bottom: 14px;
+        }
+        .deep-dive ul {
+            margin: 12px 0 16px 20px;
+            list-style: disc;
+        }
+        .deep-dive li {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 6px;
+        }
+        .deep-dive blockquote {
+            border-left: 4px solid var(--primary-light);
+            padding: 12px 20px;
+            background: var(--bg);
+            border-radius: 0 var(--radius-btn) var(--radius-btn) 0;
+            margin: 16px 0;
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+        }
+
+        /* 体验指南 */
+        .guide-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .guide-step {
+            display: flex;
+            gap: 16px;
+            background: var(--surface);
+            border-radius: var(--radius-card);
+            padding: 20px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-default);
+        }
+        .step-num {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .step-content h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+        .step-content p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* FAQ */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .faq-item {
+            background: var(--surface);
+            border-radius: var(--radius-card);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+        .faq-item summary {
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 400;
+            transition: transform 0.2s;
+        }
+        .faq-item[open] summary::after {
+            content: '−';
+        }
+        .faq-item summary:hover {
+            background: var(--bg);
+        }
+        .faq-item[open] summary {
+            border-bottom: 1px solid var(--border);
+        }
+        .faq-answer {
+            padding: 16px 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* 用户评论 */
+        .comments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .comment-card {
+            background: var(--surface);
+            border-radius: var(--radius-card);
+            padding: 16px 18px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-default);
+        }
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .comment-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+        .comment-nickname {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .comment-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* 相关资讯 */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .news-item {
+            display: flex;
+            flex-direction: column;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .news-item:last-child { border-bottom: none; }
+        .news-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .news-title:hover {
+            color: var(--primary);
+        }
+        .news-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 0.78rem;
+            color: var(--text-tertiary);
+            margin-bottom: 6px;
+        }
+        .news-summary {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* 相关推荐 */
+        .recommend-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .recommend-tag {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-tag);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+        .recommend-tag:hover,
+        .recommend-tag:focus-visible {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-color: var(--primary-light);
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* 补充板块 - 热门榜单 */
+        .ranking-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .ranking-item:last-child { border-bottom: none; }
+        .rank-num {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            background: var(--bg);
+            color: var(--text-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        .ranking-item:nth-child(1) .rank-num { background: var(--primary); color: #fff; }
+        .ranking-item:nth-child(2) .rank-num { background: var(--primary-light); color: var(--primary-dark); }
+        .ranking-item:nth-child(3) .rank-num { background: #f2d7b3; color: #8f6b3a; }
+        .rank-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            flex: 1;
+        }
+        .rank-heat {
+            font-size: 0.78rem;
+            color: var(--text-tertiary);
+        }
+
+        /* 辅助栏组件 */
+        .aux-card {
+            background: var(--surface);
+            border-radius: var(--radius-card);
+            padding: 20px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-default);
+            margin-bottom: 20px;
+        }
+        .aux-card:last-child { margin-bottom: 0; }
+        .aux-card h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .aux-list li {
+            padding: 6px 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 8px;
+        }
+        .aux-list li::before {
+            content: '·';
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* 互动板块 - 投稿/交流 */
+        .interact-box {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: var(--radius-card);
+            padding: 28px 32px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .interact-box h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .interact-box p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+        .interact-box .btn-white {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff;
+            color: var(--primary-dark);
+            padding: 12px 28px;
+            border-radius: var(--radius-btn);
+            font-size: 0.95rem;
+            font-weight: 700;
+            transition: transform 0.2s, box-shadow 0.2s;
+            flex-shrink: 0;
+        }
+        .interact-box .btn-white:hover,
+        .interact-box .btn-white:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+        }
+
+        /* 页尾 */
+        .site-footer {
+            background: #2a2520;
+            color: #c9c0b6;
+            padding: 48px 0 24px;
+            margin-top: 48px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+        .footer-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .footer-desc {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #a89e94;
+            margin-bottom: 16px;
+        }
+        .footer-col h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .footer-col li {
+            margin-bottom: 8px;
+        }
+        .footer-col a {
+            font-size: 0.85rem;
+            color: #a89e94;
+            transition: color 0.2s;
+        }
+        .footer-col a:hover {
+            color: #fff;
+        }
+        .footer-bottom {
+            border-top: 1px solid #3d362f;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.78rem;
+            color: #8a827a;
+        }
+
+        /* 回到顶部 */
+        .back-to-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-hover);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            z-index: 200;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            transform: translateY(-4px);
+        }
+
+        /* 移动端遮罩 */
+        .overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 99;
+        }
+        .overlay.active { display: block; }
+
+        /* 响应式 */
+        @media (max-width: 1024px) {
+            .portal-layout {
+                grid-template-columns: 200px 1fr;
+            }
+            .aux-sidebar {
+                display: none;
+            }
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 740px) {
+            :root {
+                --header-height: 100px;
+            }
+            .container {
+                padding: 0 16px;
+            }
+            .page-header .container {
+                flex-wrap: wrap;
+            }
+            .main-nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                padding: 12px 0;
+                gap: 4px;
+            }
+            .main-nav.open {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .search-box input {
+                width: 100px;
+            }
+            .portal-layout {
+                grid-template-columns: 1fr;
+                padding: 24px 0;
+            }
+            .channel-sidebar {
+                position: static;
+                order: -1;
+            }
+            .channel-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+            .channel-list li a {
+                border-left: none;
+                border-bottom: 2px solid transparent;
+                padding: 6px 10px;
+                font-size: 0.82rem;
+            }
+            .channel-list li a:hover,
+            .channel-list li a:focus-visible,
+            .channel-list li a.active {
+                border-left: none;
+                border-bottom-color: var(--primary);
+            }
+            .hero {
+                padding: 32px 0 40px;
+            }
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .hero-desc {
+                font-size: 0.95rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .comments-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .deep-dive {
+                padding: 20px;
+            }
+            .overview-box {
+                padding: 20px;
+            }
+            .interact-box {
+                padding: 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .back-to-top {
+                bottom: 16px;
+                right: 16px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶区域 -->
+<div class="sticky-top">
+    <div class="announce-bar">
+        <div class="container">
+            <span class="brand-mark">色界吧社区</span>
+            <span class="item"><span class="date">11月8日</span> 新增「莫兰迪色系室内应用」专题</span>
+            <span class="item"><span class="date">11月7日</span> 2026秋季配色趋势报告发布</span>
+            <span class="item"><span class="date">11月6日</span> 插画师林小满色彩工作流分享</span>
+        </div>
+    </div>
+    <header class="page-header">
+        <div class="container">
+            <div class="logo-area">
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect width="100" height="100" rx="20" fill="#c44536"/>
+                    <circle cx="35" cy="40" r="14" fill="#f2d7b3"/>
+                    <circle cx="65" cy="40" r="14" fill="#4a7a8c"/>
+                    <circle cx="50" cy="68" r="14" fill="#8a9a6b"/>
+                </svg>
+                <span class="brand-text">色界吧社区</span>
+            </div>
+            <nav class="main-nav" id="mainNav" aria-label="主导航">
+                <a href="#overview">领域概览</a>
+                <a href="#featured">精选作品</a>
+                <a href="#updates">最新动态</a>
+                <a href="#categories">分类导航</a>
+                <a href="#deep-dive">深度解析</a>
+                <a href="#faq">常见问题</a>
+                <a href="#comments">用户评论</a>
+            </nav>
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="search" id="searchInput" placeholder="搜索配色方案、作品…" aria-label="站内搜索">
+                    <button type="button" id="searchBtn" aria-label="搜索">🔍</button>
+                </div>
+                <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<!-- 首屏 -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>色界吧社区</h1>
+            <p class="hero-desc">汇聚配色方案、色彩心理学与视觉设计实践。从平面海报到室内空间，从品牌色到插画调色，提供可参考的色板、设计师工作流拆解与工具实测。</p>
+            <div class="hero-actions">
+                <a href="#featured" class="btn-primary">浏览精选作品 →</a>
+                <a href="#deep-dive" class="btn-outline">读深度解析</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <svg class="color-wheel-svg" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg" aria-label="色彩轮盘装饰图形">
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#c44536;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#e8a59a;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#4a7a8c;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#8bb8c4;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#8a9a6b;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#c5d1a8;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <circle cx="170" cy="170" r="150" fill="none" stroke="#e5dfd7" stroke-width="1" />
+                <path d="M170 170 L170 20 A150 150 0 0 1 300 95 Z" fill="url(#grad1)" opacity="0.85" />
+                <path d="M170 170 L300 95 A150 150 0 0 1 300 245 Z" fill="url(#grad2)" opacity="0.85" />
+                <path d="M170 170 L300 245 A150 150 0 0 1 170 320 Z" fill="url(#grad3)" opacity="0.85" />
+                <path d="M170 170 L170 320 A150 150 0 0 1 40 245 Z" fill="url(#grad1)" opacity="0.65" />
+                <path d="M170 170 L40 245 A150 150 0 0 1 40 95 Z" fill="url(#grad2)" opacity="0.65" />
+                <path d="M170 170 L40 95 A150 150 0 0 1 170 20 Z" fill="url(#grad3)" opacity="0.65" />
+                <circle cx="170" cy="170" r="40" fill="#faf7f2" stroke="#e5dfd7" stroke-width="2" />
+                <text x="170" y="176" text-anchor="middle" font-size="14" font-weight="700" fill="#8f2c20" font-family="sans-serif">色界</text>
+            </svg>
+        </div>
+    </div>
+</section>
+
+<!-- 三栏门户主体 -->
+<div class="container">
+    <div class="portal-layout">
+        <!-- 左频道栏 -->
+        <aside class="channel-sidebar" aria-label="频道导航">
+            <h2>频道</h2>
+            <ul class="channel-list">
+                <li><a href="#overview" class="active">配色方案</a></li>
+                <li><a href="#featured">视觉灵感</a></li>
+                <li><a href="#updates">调色技巧</a></li>
+                <li><a href="#categories">设计工具</a></li>
+                <li><a href="#deep-dive">色彩心理学</a></li>
+                <li><a href="#faq">品牌色</a></li>
+                <li><a href="#comments">室内色彩</a></li>
+                <li><a href="#news">插画配色</a></li>
+            </ul>
+        </aside>
+
+        <!-- 中主内容 -->
+        <main class="main-content">
+
+            <!-- 领域概览 -->
+            <section class="section" id="overview">
+                <div class="section-header">
+                    <h2>色彩设计领域概览</h2>
+                </div>
+                <div class="overview-box">
+                    <p>色彩设计在2026年已经从“好看就行”进入系统化阶段。平面设计领域，潘通2026年度色“焦糖棕”带动了大地色系在品牌视觉中的大面积应用，但实际落地时设计师更关心的是同一色相在Pantone、CMYK、sRGB三套体系下的偏差值。UI方向，暗色模式的普及让对比度检查工具（如WebAIM Contrast Checker）成为日常必备，WCAG 2.2对非文本对比度的要求从3:1提升至4.5:1的讨论已在多个设计社区出现。</p>
+                    <p>插画与游戏美术方面，色板管理工具Procreate 5.4新增的“色彩历史”功能改变了画师回溯调色过程的习惯；而Blender 4.3的AgX色彩管理则让3D渲染的暗部过渡更接近胶片质感。室内设计端，莫兰迪色系在二三线城市住宅装修中的采用率较2025年同期上升约18个百分点，但翻车案例多集中在灯光色温与墙面漆的匹配上——3000K暖光下灰绿色容易泛黄。</p>
+                    <p>值得关注的具体内容方向包括：基于OKLCH色彩空间的渐变色生成、品牌色在包装印刷中的专色替代方案、影视调色中LUT的套用逻辑，以及传统色卡（如日本传统色、中国传统色）在数字创作中的复兴。这些方向背后对应着可搜索的具体工具和教程，而非泛泛的审美讨论。</p>
+                </div>
+            </section>
+
+            <!-- 精选内容推荐 -->
+            <section class="section" id="featured">
+                <div class="section-header">
+                    <h2>精选作品与方案</h2>
+                    <a href="#featured" class="more-link">查看全部 →</a>
+                </div>
+                <div class="card-grid">
+                    <article class="content-card">
+                        <div class="card-img-wrap">
+                            <img src="https://picsum.photos/seed/colorpalette1/400/300" width="400" height="300" loading="lazy" alt="莫兰迪色系客厅空间配色实景">
+                        </div>
+                        <div class="card-body">
+                            <span class="card-type">室内配色</span>
+                            <h3 class="card-title">莫兰迪灰绿+暖白的客厅实践</h3>
+                            <p class="card-desc">墙面灰绿（NCS S 2005-G30Y）搭配暖白石膏线，家具选用胡桃木色。实测3000K灯光下灰绿偏黄，建议改用3500K中性光。</p>
+                            <div class="card-meta">
+                                <span class="tag-pill">灰绿色</span>
+                                <span class="tag-pill">灯光匹配</span>
+                                <span class="card-heat">热度 2.4k</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="content-card">
+                        <div class="card-img-wrap">
+                            <img src="https://picsum.photos/seed/uipalette2/400/300" width="400" height="300" loading="lazy" alt="暗色模式仪表盘UI配色界面">
+                        </div>
+                        <div class="card-body">
+                            <span class="card-type">UI配色</span>
+                            <h3 class="card-title">暗色模式下的数据看板色板</h3>
+                            <p class="card-desc">背景#1A1B1E，主色#C44536，辅助#4A7A8C。图表用色经过色盲模拟测试，红绿色盲下可区分度达87%。</p>
+                            <div class="card-meta">
+                                <span class="tag-pill">暗色模式</span>
+                                <span class="tag-pill">数据可视化</span>
+                                <span class="card-heat">热度 1.8k</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="content-card">
+                        <div class="card-img-wrap">
+                            <img src="https://picsum.photos/seed/illustration3/400/300" width="400" height="300" loading="lazy" alt="插画师林小满的秋日主题插画配色">
+                        </div>
+                        <div class="card-body">
+                            <span class="card-type">插画配色</span>
+                            <h3 class="card-title">林小满秋日系列色板拆解</h3>
+                            <p class="card-desc">主色焦糖橙#D98E3C、辅色深栗#5C3A21、点缀雾蓝#8BB8C4。画师自述灵感来自京都11月的红叶与石板路。</p>
+                            <div class="card-meta">
+                                <span class="tag-pill">秋日色板</span>
+                                <span class="tag-pill">Procreate</span>
+                                <span class="card-heat">热度 3.1k</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="content-card">
+                        <div class="card-img-wrap">
+                            <img src="https://picsum.photos/seed/brandcolor4/400/300" width="400" height="300" loading="lazy" alt="茶饮品牌焦糖棕主视觉包装设计">
+                        </div>
+                        <div class="card-body">
+                            <span class="card-type">品牌色</span>
+                            <h3 class="card-title">茶饮品牌“煮叶”焦糖棕升级</h3>
+                            <p class="card-desc">从#A0522D换成#8B5E3C，降低饱和度以减少廉价感。包装印刷采用专色Pantone 4645C，实物比屏幕暗半档。</p>
+                            <div class="card-meta">
+                                <span class="tag-pill">品牌升级</span>
+                                <span class="tag-pill">专色印刷</span>
+                                <span class="card-heat">热度 1.5k</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="content-card">
+                        <div class="card-img-wrap">
+                            <img src="https://picsum.photos/seed/gradient5/400/300" width="400" height="300" loading="lazy" alt="OKLCH渐变色生成器界面截图">
+                        </div>
+                        <div class="card-body">
+                            <span class="card-type">工具实测</span>
+                            <h3 class="card-title">OKLCH渐变色生成器对比</h3>
+                            <p class="card-desc">对比“梯度实验室”与“ColorBox”两款在线工具，前者支持导出CSS变量，后者色域映射更准但缺少暗色模式适配。</p>
+                            <div class="card-meta">
+                                <span class="tag-pill">OKLCH</span>
+                                <span class="tag-pill">渐变色</span>
+                                <span class="card-heat">热度 980</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="content-card">
+                        <div class="card-img-wrap">
+                            <img src="https://picsum.photos/seed/filmcolor6/400/300" width="400" height="300" loading="lazy" alt="影视调色LUT套用前后对比画面">
+                        </div>
+                        <div class="card-body">
+                            <span class="card-type">影视调色</span>
+                            <h3 class="card-title">短片《夜奔》的LUT套用逻辑</h3>
+                            <p class="card-desc">调色师张野用柯达2383 LUT打底，再叠一层自定义曲线压暗部。全片85%镜头在达芬奇里完成，LUT未做二次透传。</p>
+                            <div class="card-meta">
+                                <span class="tag-pill">达芬奇</span>
+                                <span class="tag-pill">LUT</span>
+                                <span class="card-heat">热度 1.2k</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 最新更新 -->
+            <section class="section" id="updates">
+                <div class="section-header">
+                    <h2>最新更新与动态</h2>
+                </div>
+                <div class="update-list">
+                    <div class="update-item">
+                        <span class="update-date">2026-11-08</span>
+                        <span class="update-title">中国传统色「秋香」</span>
+                        <span class="update-summary">新增HEX #D9B611与CMYK近似值，附古籍出处《雪宦绣谱》。</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">2026-11-07</span>
+                        <span class="update-title">2026秋季配色趋势报告</span>
+                        <span class="update-summary">涵盖时装、家居、UI三大领域，共收录47组色板。</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">2026-11-06</span>
+                        <span class="update-title">Procreate 5.4色彩历史功能</span>
+                        <span class="update-summary">实测可回溯最近200步调色记录，但导出色板仅支持.ase格式。</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">2026-11-05</span>
+                        <span class="update-title">Blender AgX色彩管理</span>
+                        <span class="update-summary">与Filmic对比：暗部细节多保留约15%，高光滚降更平滑。</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">2026-11-04</span>
+                        <span class="update-title">设计师陈默「品牌色克制论」</span>
+                        <span class="update-summary">主张主色使用面积不超过页面30%，评论区争议较大。</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">2026-11-03</span>
+                        <span class="update-title">日本传统色「瓶覗」</span>
+                        <span class="update-summary">青瓷色系，常用于陶瓷与织物设计，HEX #A8C4C0。</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">2026-11-02</span>
+                        <span class="update-title">WebAIM对比度检查器更新</span>
+                        <span class="update-summary">新增对WCAG 2.2非文本对比度4.5:1的预检提示。</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">2026-11-01</span>
+                        <span class="update-title">「煮叶」品牌升级完整复盘</span>
+                        <span class="update-summary">含新旧色板对比、专色打样记录、门店灯光色温调整方案。</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 分类入口 -->
+            <section class="section" id="categories">
+                <div class="section-header">
+                    <h2>按垂类找配色</h2>
+                </div>
+                <div class="category-grid">
+                    <a href="#featured" class="category-item">
+                        <span class="category-icon">🎨</span>
+                        <span class="category-name">平面配色</span>
+                    </a>
+                    <a href="#featured" class="category-item">
+                        <span class="category-icon">🖥️</span>
+                        <span class="category-name">UI/UX色板</span>
+                    </a>
+                    <a href="#featured" class="category-item">
+                        <span class="category-icon">🏠</span>
+                        <span class="category-name">室内色彩</span>
+                    </a>
+                    <a href="#featured" class="category-item">
+                        <span class="category-icon">✏️</span>
+                        <span class="category-name">插画调色</span>
+                    </a>
+                    <a href="#featured" class="category-item">
+                        <span class="category-icon">🎬</span>
+                        <span class="category-name">影视调色</span>
+                    </a>
+                    <a href="#featured" class="category-item">
+                        <span class="category-icon">🏷️</span>
+                        <span class="category-name">品牌视觉</span>
+                    </a>
+                    <a href="#featured" class="category-item">
+                        <span class="category-icon">🧰</span>
+                        <span class="category-name">配色工具</span>
+                    </a>
+                    <a href="#featured" class="category-item">
+                        <span class="category-icon">📖</span>
+                        <span class="category-name">传统色卡</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- 深度解析 -->
+            <section class="section" id="deep-dive">
+                <div class="deep-dive">
+                    <h2>深度解析：同色不同命——为什么你的灰绿总翻车</h2>
+                    <p>设计师周雨桐2026年9月在小红书发过一条对比：同一桶立邦“灰绿”色漆，刷在朝南卧室和朝北书房，照片里呈现的色相差出约12个色相角。评论区两百多条回复里，一半在问色号，另一半在晒自己的翻车现场。问题不在漆，在光。</p>
+
+                    <h3>一、色温偏差是头号变量</h3>
+                    <p>室内漆面颜色受光源色温影响，3000K暖光下灰绿色会向黄相偏移，5000K冷光下则往蓝相偏。实测数据：色温每变化500K，灰绿色（NCS S 2005-G30Y）的CIELAB b*值（黄蓝轴）浮动约1.2—1.8。这意味着同一面墙在一天不同时段看颜色都不一样，更别说不同房间。</p>
+                    <p>2026年10月，杭州一位业主在装修论坛贴出施工记录：客厅和餐厅用了同一色号，客厅用3500K射灯，餐厅用2700K吊灯，结果餐厅那面墙被家人说“发脏”。施工方后来加了一层白色底漆才缓解。这说明色温匹配应该在选漆阶段就定下来，而不是刷完了再调灯。</p>
+
+                    <h3>二、底漆与面漆的遮盖力差异</h3>
+                    <p>深色漆覆盖浅色底漆时，通常需要两遍面漆才能达到色卡效果。但灰绿色属于低饱和度中明度色，遮盖力本身就弱。某国产漆品牌2026年8月更新的施工规范里写：灰绿色系建议白色底漆+三遍面漆，每遍间隔4小时以上。很多师傅按两遍做的，成品偏浅。</p>
+                    <ul>
+                        <li>白色底漆：色相还原度约92%，成本低，需多刷一遍面漆。</li>
+                        <li>灰色底漆：色相还原度约96%，但灰色底漆本身色号选错会叠加偏色。</li>
+                        <li>直接刷面漆：还原度仅78%左右，不推荐。</li>
+                    </ul>
+
+                    <h3>三、手机拍色与实物偏差</h3>
+                    <p>2026年10月的一项小范围测试里，用iPhone 17 Pro和华为Mate 80分别拍摄同一面灰绿墙，自动白平衡下iPhone偏冷、华为偏暖，两张照片的色差ΔE达到6.3（超过3人眼可辨）。所以拿手机照片去配家具颜色，翻车概率不低。靠谱做法是：带A4白纸去现场，手机锁定白平衡后拍，再和色卡对照。</p>
+                    <blockquote>判断一个灰绿色号是否适合自家，可以按这个顺序核对：①自然光下看大样板（至少A4大小）；②晚上开常用灯再看一次；③把样板放在待刷墙面旁对比；④确认底漆类型；⑤问清面漆建议遍数。五项里缺一项，结果都可能偏。</blockquote>
+
+                    <h3>四、品牌色板与空间色的逻辑不同</h3>
+                    <p>平面品牌色追求识别度，往往用高饱和度；室内色彩追求长时间停留的舒适度，低饱和更安全。把品牌VI里的灰绿色直接搬上墙，容易显得“像办公室”。2026年9月，某新消费茶饮品牌开线下店时把包装主色#6B8E6B刷了整面墙，开业三天后收到“像医院走廊”的反馈，后来在墙面加了暖色木格栅才平衡回来。</p>
+                    <p>这条经验对普通住户同样成立：灰绿色墙面适合搭配暖木色、米白、藤编材质，单刷一面墙比四面全刷更稳。数据上，单面墙翻车后的返工成本约为全屋刷漆的1/4，试错空间更大。</p>
+                </div>
+            </section>
+
+            <!-- 体验指南 -->
+            <section class="section" id="guide">
+                <div class="section-header">
+                    <h2>配色方案消费路径</h2>
+                </div>
+                <div class="guide-steps">
+                    <div class="guide-step">
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h3>先定场景，再找色板</h3>
+                            <p>室内配色要看采光方向，UI配色要看使用时长，插画配色要看输出媒介。场景没定就翻色卡，大概率白看。</p>
+                        </div>
+                    </div>
+                    <div class="guide-step">
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h3>用对比度工具筛一遍</h3>
+                            <p>UI方案直接丢进WebAIM Contrast Checker，正文对比度低于4.5:1的色板直接放弃。室内方案看色卡在CIELAB空间的ΔE值，超过5的搭配需要谨慎。</p>
+                        </div>
+                    </div>
+                    <div class="guide-step">
+                        <div class="step-num">3</div>
+                        <div class="step-content">
+                            <h3>小面积试色再铺开</h3>
+                            <p>室内买A4试色纸或小罐样漆，刷在待用墙面观察48小时。数字设计先做一屏高保真，别直接改全局变量。</p>
+                        </div>
+                    </div>
+                    <div class="guide-step">
+                        <div class="step-num">4</div>
+                        <div class="step-content">
+                            <h3>交叉验证光源与输出</h3>
+                            <p>室内看灯，屏幕看校色仪。设计稿在sRGB和P3色域下各看一遍，印刷稿对照Pantone色卡实物。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section class="section" id="faq">
+                <div class="section-header">
+                    <h2>常见问题</h2>
+                </div>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>灰绿色墙面用什么色温的灯不偏色？</summary>
+                        <div class="faq-answer">3500K—4000K中性光下灰绿色色相偏移最小。3000K以下暖光会让灰绿泛黄，5000K以上冷光会让灰绿发蓝。实测NCS S 2005-G30Y在3500K下ΔE约1.8，在2700K下ΔE约4.2。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>OKLCH和HSL做渐变色哪个更好？</summary>
+                        <div class="faq-answer">OKLCH在明度过渡上更均匀，不会出现HSL那种中段突然发灰的问题。2026年主流设计工具Figma插件“梯度实验室”已支持OKLCH导出。但OKLCH在低端显示器上色域映射可能溢出，需要做sRGB回退。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Procreate 5.4色彩历史能导出成色板吗？</summary>
+                        <div class="faq-answer">可以，但只支持.ase格式，导出后需用Adobe Color或Coolors二次转换才能导入Figma。单次最多导出12个颜色，超出部分需要分次操作。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>品牌升级换主色，旧包装库存怎么处理？</summary>
+                        <div class="faq-answer">分批次替换是通行做法。2026年“煮叶”的做法是旧包装贴新色贴纸过渡，贴纸成本约0.08元/张，比直接报废低。线上物料先换，线下按门店分批换，周期控制在2—3个月。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>色盲用户能区分哪些UI图表色？</summary>
+                        <div class="faq-answer">红绿色盲对红绿组合区分度最低。可改用蓝橙组合（#4A7A8C + #D98E3C），或加入形状/纹理差异。色盲模拟工具“Color Blindness Simulator”可在线测试，重点看红绿色盲和蓝黄色盲两种模式。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>中国传统色有权威的HEX对照表吗？</summary>
+                        <div class="faq-answer">目前没有唯一标准。常用参考包括《中国传统色：故宫里的色彩美学》（郭浩、李健明著）附录色值，以及“中国色”网站（zhongguose.com）的数字化色卡。不同来源同一色名可能差5—10个色相角，引用时注明出处即可。</div>
+                    </details>
+                </div>
+            </section>
+
+            <!-- 用户评论 -->
+            <section class="section" id="comments">
+                <div class="section-header">
+                    <h2>用户评论</h2>
+                </div>
+                <div class="comments-grid">
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">林</div>
+                            <span class="comment-nickname">林小满</span>
+                        </div>
+                        <p class="comment-text">秋日系列那组色板我调了三天，焦糖橙在Procreate里和实际印出来差挺多，建议用CMYK预览模式再定稿。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">周</div>
+                            <span class="comment-nickname">周雨桐</span>
+                        </div>
+                        <p class="comment-text">灰绿翻车那个我亲身经历，最后换了4000K灯才救回来。色卡上看着挺高级，上墙完全不是一回事。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">陈</div>
+                            <span class="comment-nickname">陈默</span>
+                        </div>
+                        <p class="comment-text">品牌色30%面积那个说法我保留意见，小面积高饱和在货架上反而更跳。得看场景。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">张</div>
+                            <span class="comment-nickname">张野</span>
+                        </div>
+                        <p class="comment-text">达芬奇那个LUT套用逻辑写得挺准，2383打底确实省事，但暗部压太狠会丢细节，调的时候得盯着波形图。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">阿</div>
+                            <span class="comment-nickname">阿茶</span>
+                        </div>
+                        <p class="comment-text">有没有人觉得OKLCH导出的渐变在某些安卓机上直接断层？我这边测试了好几个机型都有问题。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">M</div>
+                            <span class="comment-nickname">Mia设计手记</span>
+                        </div>
+                        <p class="comment-text">暗色模式数据看板那套色板我直接抄了，改了两个标签色，对比度测试全过，省了我一上午。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">老</div>
+                            <span class="comment-nickname">老赵刷墙</span>
+                        </div>
+                        <p class="comment-text">灰绿三遍面漆那个我同意，两遍真的盖不住，尤其是深色底漆上来的，刷完还得补。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">Y</div>
+                            <span class="comment-nickname">Yuki_UI</span>
+                        </div>
+                        <p class="comment-text">WebAIM更新了4.5:1那个，我们组已经按新标准改了一版设计规范，甲方还没发现。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">竹</div>
+                            <span class="comment-nickname">竹内凉子</span>
+                        </div>
+                        <p class="comment-text">日本传统色瓶覗那个色值不太对，我手头《日本传统色》书上写的是#A3C1BE，差一点点但看着就是不一样。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">大</div>
+                            <span class="comment-nickname">大魏</span>
+                        </div>
+                        <p class="comment-text">趋势报告47组色板看完了，能用在国潮包装上的大概就五六组，剩下的偏欧美审美。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">果</div>
+                            <span class="comment-nickname">果冻橙</span>
+                        </div>
+                        <p class="comment-text">为什么没有游戏UI的配色专题？二次元手游那种高饱和加描边的风格也挺值得聊的。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">一</div>
+                            <span class="comment-nickname">一只调色狗</span>
+                        </div>
+                        <p class="comment-text">影视调色那篇短了点，想看更多关于LUT透传和色彩空间转换的内容，达芬奇里node怎么搭的。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">南</div>
+                            <span class="comment-nickname">南风知我意</span>
+                        </div>
+                        <p class="comment-text">评论区吵品牌色面积那个，其实甲方说了算，设计师争半天没用。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">K</div>
+                            <span class="comment-nickname">Kevin_Z</span>
+                        </div>
+                        <p class="comment-text">ColorBox那个工具确实色域映射更准，但我用它导出的CSS在Safari里显示不一样，不知道是不是浏览器色彩管理的问题。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-avatar">豆</div>
+                            <span class="comment-nickname">豆瓣酱</span>
+                        </div>
+                        <p class="comment-text">刷到这条的时候正在选漆，灰绿已经定了，灯还没买，看来得先定灯再刷墙。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 相关资讯 -->
+            <section class="section" id="news">
+                <div class="section-header">
+                    <h2>相关资讯</h2>
+                </div>
+                <div class="news-list">
+                    <div class="news-item">
+                        <h3 class="news-title">潘通发布2026年度色「焦糖棕」后，国内涂料品牌跟进情况</h3>
+                        <div class="news-meta">
+                            <span>2026-11-06</span>
+                            <span>来源：涂料工业观察</span>
+                        </div>
+                        <p class="news-summary">立邦、三棵树已推出对应色号，但调色中心数据显示，终端用户实际下单最多的仍是灰蓝和米白，焦糖棕首周订单占比约7%。</p>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">Blender 4.3正式版发布，AgX色彩管理成为默认选项</h3>
+                        <div class="news-meta">
+                            <span>2026-11-05</span>
+                            <span>来源：Blender官方发布日志</span>
+                        </div>
+                        <p class="news-summary">与Filmic相比，AgX在暗部保留更多细节，皮肤色调过渡更自然。部分老用户反馈需重新调整灯光强度，官方论坛相关讨论帖已超300条。</p>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">WebAIM更新对比度检查器，新增WCAG 2.2非文本对比度预检</h3>
+                        <div class="news-meta">
+                            <span>2026-11-02</span>
+                            <span>来源：WebAIM官网</span>
+                        </div>
+                        <p class="news-summary">新版本对图表边框、图标等非文本元素给出4.5:1的预检提示，但不会自动修正，需手动调整色值。</p>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">「煮叶」品牌升级完整复盘公开，专色打样记录成关注点</h3>
+                        <div class="news-meta">
+                            <span>2026-11-01</span>
+                            <span>来源：煮叶品牌公众号</span>
+                        </div>
+                        <p class="news-summary">复盘文章披露了Pantone 4645C打样三次才通过的过程，以及门店灯光从4000K调整为3500K后墙面灰绿不再泛黄的具体数据。</p>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">Procreate 5.4更新色彩历史功能，画师社区反馈两极</h3>
+                        <div class="news-meta">
+                            <span>2026-10-28</span>
+                            <span>来源：Procreate官方论坛</span>
+                        </div>
+                        <p class="news-summary">部分画师认为回溯调色过程省时，另一部分认为200步上限不够用，且.ase导出格式兼容性有限。</p>
+                    </div>
+                    <div class="news-item">
+                        <h3 class="news-title">中国流行色协会发布2026—2027室内色彩趋势报告</h3>
+                        <div class="news-meta">
+                            <span>2026-10-25</span>
+                            <span>来源：中国流行色协会</span>
+                        </div>
+                        <p class="news-summary">报告将“低饱和自然色系”列为首要方向，但提醒设计师注意南北采光差异，建议按纬度分区域调整色板明度。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 相关推荐 -->
+            <section class="section" id="recommend">
+                <div class="section-header">
+                    <h2>相关推荐方向</h2>
+                </div>
+                <div class="recommend-tags">
+                    <a href="#featured" class="recommend-tag">莫兰迪色系搭配</a>
+                    <a href="#featured" class="recommend-tag">OKLCH渐变生成</a>
+                    <a href="#featured" class="recommend-tag">暗色模式对比度</a>
+                    <a href="#featured" class="recommend-tag">中国传统色卡</a>
+                    <a href="#featured" class="recommend-tag">室内灯光色温匹配</a>
+                    <a href="#featured" class="recommend-tag">品牌专色印刷</a>
+                    <a href="#featured" class="recommend-tag">Procreate调色工作流</a>
+                    <a href="#featured" class="recommend-tag">达芬奇LUT套用</a>
+                </div>
+            </section>
+
+            <!-- 补充板块 - 热门榜单 -->
+            <section class="section" id="ranking">
+                <div class="section-header">
+                    <h2>本周色板热度榜</h2>
+                </div>
+                <div class="ranking-list">
+                    <div class="ranking-item">
+                        <span class="rank-num">1</span>
+                        <span class="rank-name">焦糖棕+雾蓝 品牌升级组合</span>
+                        <span class="rank-heat">3.2k</span>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank-num">2</span>
+                        <span class="rank-name">灰绿+暖白 室内墙面方案</span>
+                        <span class="rank-heat">2.8k</span>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank-num">3</span>
+                        <span class="rank-name">暗色模式数据看板色板</span>
+                        <span class="rank-heat">2.1k</span>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank-num">4</span>
+                        <span class="rank-name">秋日插画焦糖橙系列</span>
+                        <span class="rank-heat">1.9k</span>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank-num">5</span>
+                        <span class="rank-name">日本传统色瓶覗应用</span>
+                        <span class="rank-heat">1.5k</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 互动板块 -->
+            <section class="section">
+                <div class="interact-box">
+                    <div>
+                        <h2>分享你的配色方案</h2>
+                        <p>投稿色板、作品或调色心得，审核通过后展示在精选栏目。</p>
+                    </div>
+                    <a href="#" class="btn-white" id="submitBtn">我要投稿 →</a>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- 右辅助栏 -->
+        <aside class="aux-sidebar" aria-label="辅助信息">
+            <div class="aux-card">
+                <h3>今日更新</h3>
+                <ul class="aux-list">
+                    <li>中国传统色秋香色值</li>
+                    <li>2026秋季配色趋势报告</li>
+                    <li>Procreate色彩历史实测</li>
+                    <li>Blender AgX对比Filmic</li>
+                    <li>「煮叶」品牌复盘</li>
+                </ul>
+            </div>
+            <div class="aux-card">
+                <h3>热门标签</h3>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                    <a href="#featured" class="tag-pill" style="font-size:0.8rem;padding:4px 12px;">莫兰迪</a>
+                    <a href="#featured" class="tag-pill" style="font-size:0.8rem;padding:4px 12px;">OKLCH</a>
+                    <a href="#featured" class="tag-pill" style="font-size:0.8rem;padding:4px 12px;">暗色模式</a>
+                    <a href="#featured" class="tag-pill" style="font-size:0.8rem;padding:4px 12px;">中国传统色</a>
+                    <a href="#featured" class="tag-pill" style="font-size:0.8rem;padding:4px 12px;">专色印刷</a>
+                    <a href="#featured" class="tag-pill" style="font-size:0.8rem;padding:4px 12px;">LUT</a>
+                    <a href="#featured" class="tag-pill" style="font-size:0.8rem;padding:4px 12px;">对比度</a>
+                </div>
+            </div>
+            <div class="aux-card">
+                <h3>活跃用户</h3>
+                <ul class="aux-list">
+                    <li>林小满（插画师）</li>
+                    <li>周雨桐（室内设计）</li>
+                    <li>张野（影视调色）</li>
+                    <li>陈默（品牌设计）</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<!-- 页尾 -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">色界吧社区</div>
+                <p class="footer-desc">覆盖2026年全年配色趋势、品牌色升级案例与工具实测记录。条目类型包括色板拆解、施工复盘、设计师访谈与在线工具横评，每周更新约12—15条。</p>
+            </div>
+            <div class="footer-col">
+                <h4>内容分类</h4>
+                <ul>
+                    <li><a href="#featured">平面配色</a></li>
+                    <li><a href="#featured">UI色板</a></li>
+                    <li><a href="#featured">室内色彩</a></li>
+                    <li><a href="#featured">插画调色</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>工具与资源</h4>
+                <ul>
+                    <li><a href="#featured">OKLCH生成器</a></li>
+                    <li><a href="#featured">对比度检查</a></li>
+                    <li><a href="#featured">传统色卡</a></li>
+                    <li><a href="#featured">LUT下载</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>参与</h4>
+                <ul>
+                    <li><a href="#" id="footerSubmit">投稿色板</a></li>
+                    <li><a href="#comments">交流讨论</a></li>
+                    <li><a href="#ranking">热度榜</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 色界吧社区 · 内容均为示例条目，仅供设计参考</span>
+            <span>最后更新：2026-11-08 09:30</span>
+        </div>
+    </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+<script>
+    (function() {
+        // 汉堡菜单
+        const hamburger = document.getElementById('hamburgerBtn');
+        const mainNav = document.getElementById('mainNav');
+        const overlay = document.getElementById('overlay');
+
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            mainNav.classList.remove('open');
+            overlay.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
+
+        hamburger.addEventListener('click', function() {
+            const isOpen = mainNav.classList.toggle('open');
+            hamburger.classList.toggle('active', isOpen);
+            overlay.classList.toggle('active', isOpen);
+            hamburger.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        overlay.addEventListener('click', closeMenu);
+
+        mainNav.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMenu();
+            }
+        });
+
+        // 回到顶部
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            backToTop.classList.toggle('visible', window.scrollY > window.innerHeight);
+        });
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 搜索功能（本地可见内容查找）
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+
+        function doSearch() {
+            const query = searchInput.value.trim().toLowerCase();
+            if (!query) return;
+            const allText = document.body.innerText.toLowerCase();
+            if (allText.includes(query)) {
+                // 找到第一个匹配的板块，滚动过去
+                const sections = document.querySelectorAll('section[id]');
+                for (const sec of sections) {
+                    if (sec.innerText.toLowerCase().includes(query)) {
+                        sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        return;
+                    }
+                }
+                // 如果没有 section 匹配，滚动到 main
+                document.querySelector('main').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                alert('未找到相关内容，请尝试其他关键词。');
+            }
+        }
+
+        searchBtn.addEventListener('click', doSearch);
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                doSearch();
+            }
+        });
+
+        // 投稿按钮（示例行为）
+        document.getElementById('submitBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('投稿功能为示例，暂未开放提交入口。可在评论区交流。');
+        });
+        document.getElementById('footerSubmit').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('投稿功能为示例，暂未开放提交入口。可在评论区交流。');
+        });
+
+        // 频道导航高亮（简单滚动监听）
+        const channelLinks = document.querySelectorAll('.channel-list a');
+        const sections = document.querySelectorAll('section[id]');
+
+        function highlightChannel() {
+            let current = '';
+            sections.forEach(function(sec) {
+                const top = sec.offsetTop - 140;
+                if (window.scrollY >= top) {
+                    current = sec.getAttribute('id');
+                }
+            });
+            channelLinks.forEach(function(link) {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightChannel);
+        highlightChannel();
+    })();
+</script>
+
+<!-- 结构化数据 -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "色界吧社区",
+    "description": "色彩设计与视觉灵感聚合，提供配色方案、调色技巧与设计工具评测。",
+    "url": ""
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "灰绿色墙面用什么色温的灯不偏色？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "3500K—4000K中性光下灰绿色色相偏移最小。3000K以下暖光会让灰绿泛黄，5000K以上冷光会让灰绿发蓝。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "OKLCH和HSL做渐变色哪个更好？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "OKLCH在明度过渡上更均匀，不会出现HSL那种中段突然发灰的问题。但OKLCH在低端显示器上色域映射可能溢出，需要做sRGB回退。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Procreate 5.4色彩历史能导出成色板吗？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "可以，但只支持.ase格式，导出后需用Adobe Color或Coolors二次转换才能导入Figma。单次最多导出12个颜色。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "品牌升级换主色，旧包装库存怎么处理？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "分批次替换是通行做法。旧包装贴新色贴纸过渡，线上物料先换，线下按门店分批换，周期控制在2—3个月。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "色盲用户能区分哪些UI图表色？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "红绿色盲对红绿组合区分度最低。可改用蓝橙组合（#4A7A8C + #D98E3C），或加入形状/纹理差异。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "中国传统色有权威的HEX对照表吗？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "目前没有唯一标准。常用参考包括《中国传统色：故宫里的色彩美学》附录色值，以及“中国色”网站的数字化色卡。不同来源同一色名可能差5—10个色相角。"
+            }
+        }
+    ]
+}
+</script>
+
+</body>
+      </html>
